@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+.font-display {
+    font-family: 'Chewy', system-ui;
+    letter-spacing: 0.05em;
+}
+
+/* Outline text for dark backgrounds */
+.text-outline-cream {
+    text-shadow: 
+        -2px -2px 0 #f5ebd9,  
+         2px -2px 0 #f5ebd9,
+        -2px  2px 0 #f5ebd9,
+         2px  2px 0 #f5ebd9,
+         0px 4px 4px rgba(0,0,0,0.1);
+}
+
+/* Standard text shadow for depth */
+.text-depth-blue {
+    text-shadow: 2px 2px 0px rgba(28, 58, 99, 0.2);
+}
+
+.text-depth-cream {
+    text-shadow: 2px 2px 0px rgba(245, 235, 217, 0.4);
+}

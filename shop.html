@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dipped Shx</title>
+    <meta name="description" content="Dipped Shx - Premium Handcrafted Infused Treats. Satisfy your sweet and savory cravings." />
+    <meta property="og:title" content="Dipped Shx" />
+    <meta property="og:description" content="Premium Handcrafted Infused Treats." />
+    <meta property="og:type" content="website" />
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Global Styles for Fonts and specific text effects -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/logo.png">
+</head>
+<body class="min-h-screen bg-[#f5ebd9] text-[#1c3a63] font-mono overflow-x-hidden relative selection:bg-[#e891b6] selection:text-white">
+
+    <!-- --- Navigation --- -->
+    <nav class="fixed top-0 w-full z-50 flex items-center justify-between px-6 py-4 md:px-12 bg-[#f5ebd9]/90 backdrop-blur-sm">
+        <div class="flex items-center gap-2">
+            <!-- Brand Logo -->
+            <div class="relative w-16 h-16 md:w-20 md:h-20 flex-shrink-0">
+                <img src="img/logo.png" alt="Dipped Shx Logo" class="w-full h-full object-contain drop-shadow-md hover:scale-105 transition-transform cursor-pointer" onclick="window.scrollTo(0,0)">
+            </div>
+        </div>
+        
+        <div class="hidden md:flex gap-8 font-display text-xl tracking-wider text-[#1c3a63]">
+            <a href="index.html#home" class="hover:text-[#e891b6] transition-colors">HOME</a>
+            <a href="shop.html" class="hover:text-[#e891b6] transition-colors">SHOP</a>
+            <a href="index.html#about" class="hover:text-[#e891b6] transition-colors">ABOUT US</a>
+            <a href="index.html#contact" class="hover:text-[#e891b6] transition-colors">CONTACT</a>
+        </div>
+        
+        <div class="flex items-center gap-6">
+            <!-- Cart Button -->
+            <button id="open-cart" aria-label="Open Shopping Cart" class="relative text-[#1c3a63] hover:text-[#e891b6] transition-colors focus:outline-none">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                <span id="cart-count" class="absolute -top-2 -right-2 bg-[#e891b6] text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm">0</span>
+            </button>
+            <!-- Mobile menu toggle -->
+            <button id="open-menu" aria-label="Open Navigation Menu" class="md:hidden font-display text-xl cursor-pointer hover:text-[#e891b6] transition-colors focus:outline-none">MENU</button>
+        </div>
+    </nav>
+
+    <!-- --- SHOP HEADER --- -->
+    <header class="pt-32 pb-16 px-6 md:px-12 bg-[#f5ebd9] relative z-10">
+        <h1 class="font-display text-5xl md:text-7xl text-center text-[#1c3a63] text-depth-cream drop-shadow-md mb-4">
+            SHOP ALL
+        </h1>
+        <p class="text-center text-[#1c3a63] font-bold tracking-widest text-lg md:text-xl max-w-2xl mx-auto">
+            BROWSE OUR COMPLETE SELECTION OF PREMIUM INFUSED TREATS.
+        </p>
+    </header>
+    <!-- --- SHOP CATEGORIES --- -->
+    <main class="bg-[#f5ebd9] pb-32 px-6 md:px-12 space-y-24 z-10 relative">
+        
+        <!-- SEARCH BAR -->
+        <div class="max-w-xl mx-auto pt-10">
+            <div class="relative">
+                <input type="text" id="product-search" placeholder="Search for treats, flavors..." class="w-full bg-white border-4 border-[#1c3a63] text-[#1c3a63] px-6 py-4 rounded-full font-bold tracking-widest focus:outline-none focus:border-[#e891b6] transition-colors shadow-lg placeholder:text-[#1c3a63]/40">
+                <svg class="absolute right-6 top-1/2 -translate-y-1/2 text-[#1c3a63]/40" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </div>
+        </div>
+        
+        <!-- COOKIES & BROWNIES -->
+        <section id="shop-cookies" class="max-w-6xl mx-auto relative pt-10">
+            <h2 class="font-display text-4xl text-[#1c3a63] mb-8 border-b-4 border-[#1c3a63]/10 pb-4">COOKIES & BROWNIES</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Item -->
+                <div class="bg-white rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all border-4 border-transparent hover:border-[#1c3a63] group">
+                    <div class="bg-[#e891b6] rounded-2xl aspect-square mb-6 flex items-center justify-center overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Cookies" loading="lazy" class="w-2/3 h-2/3 object-cover rounded-full shadow-md group-hover:rotate-12 transition-transform">
+                    </div>
+                    <h3 class="font-black text-xl text-[#1c3a63] mb-2 tracking-wider">SIGNATURE COOKIES</h3>
+                    <p class="text-base text-[#1c3a63]/70 font-bold tracking-widest mb-4">Premium infused chocolate chip cookies.</p>
+                    <button class="add-to-cart-btn block w-full text-center bg-[#1c3a63] text-white py-3 rounded-xl font-bold tracking-widest hover:bg-[#e891b6] transition-colors mt-auto" data-name="Signature Cookies">
+                        ADD TO CART
+                    </button>
+                </div>
+                <!-- Item -->
+                <div class="bg-white rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all border-4 border-transparent hover:border-[#1c3a63] group">
+                    <div class="bg-[#e891b6] rounded-2xl aspect-square mb-6 flex items-center justify-center overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Brownies" loading="lazy" class="w-2/3 h-2/3 object-cover shadow-md rounded-2xl group-hover:scale-110 transition-transform">
+                    </div>
+                    <h3 class="font-black text-xl text-[#1c3a63] mb-2 tracking-wider">DOUBLE CHOC BROWNIES</h3>
+                    <p class="text-base text-[#1c3a63]/70 font-bold tracking-widest mb-4">Rich, fudgy, and intensely satisfying.</p>
+                    <button class="add-to-cart-btn block w-full text-center bg-[#1c3a63] text-white py-3 rounded-xl font-bold tracking-widest hover:bg-[#e891b6] transition-colors mt-auto" data-name="Double Choc Brownies">
+                        ADD TO CART
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- ICE-CREAMS -->
+        <section id="shop-icecreams" class="max-w-6xl mx-auto relative pt-10">
+            <h2 class="font-display text-4xl text-[#1c3a63] mb-8 border-b-4 border-[#1c3a63]/10 pb-4">ICE-CREAMS</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Item -->
+                <div class="bg-white rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all border-4 border-transparent hover:border-[#1c3a63] group">
+                    <div class="bg-[#5ac1b0] rounded-2xl aspect-square mb-6 flex items-center justify-center overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1563805042-7684c8e9e533?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sandwiches" loading="lazy" class="w-2/3 h-2/3 object-cover rounded-full shadow-md group-hover:scale-105 transition-transform">
+                    </div>
+                    <h3 class="font-black text-xl text-[#1c3a63] mb-2 tracking-wider">ICE-CREAM SANDWICHES</h3>
+                    <p class="text-base text-[#1c3a63]/70 font-bold tracking-widest mb-4">The perfect combo of cookie and cream.</p>
+                    <button class="add-to-cart-btn block w-full text-center bg-[#1c3a63] text-white py-3 rounded-xl font-bold tracking-widest hover:bg-[#5ac1b0] transition-colors mt-auto" data-name="Ice-Cream Sandwiches">
+                        ADD TO CART
+                    </button>
+                </div>
+                <!-- Item -->
+                <div class="bg-white rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all border-4 border-transparent hover:border-[#1c3a63] group">
+                    <div class="bg-[#5ac1b0] rounded-2xl aspect-square mb-6 flex items-center justify-center overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1570197571499-166b36435e9f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Tubs" loading="lazy" class="w-2/3 h-2/3 object-cover shadow-md rounded-lg group-hover:-translate-y-2 transition-transform">
+                    </div>
+                    <h3 class="font-black text-xl text-[#1c3a63] mb-2 tracking-wider">ICE-CREAM TUBS</h3>
+                    <p class="text-base text-[#1c3a63]/70 font-bold tracking-widest mb-4">Grab a spoon and elevate your chill.</p>
+                    <button class="add-to-cart-btn block w-full text-center bg-[#1c3a63] text-white py-3 rounded-xl font-bold tracking-widest hover:bg-[#5ac1b0] transition-colors mt-auto" data-name="Ice-Cream Tubs">
+                        ADD TO CART
+                    </button>
+                </div>
+                <!-- Item -->
+                <div class="bg-white rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all border-4 border-transparent hover:border-[#1c3a63] group">
+                    <div class="bg-[#5ac1b0] rounded-2xl aspect-square mb-6 flex items-center justify-center overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1522856339183-5a7bb57767da?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Pops" loading="lazy" class="w-2/3 h-2/3 object-cover shadow-md rounded-lg group-hover:rotate-6 transition-transform">
+                    </div>
+                    <h3 class="font-black text-xl text-[#1c3a63] mb-2 tracking-wider">ICE-CREAM POPSICLES</h3>
+                    <p class="text-base text-[#1c3a63]/70 font-bold tracking-widest mb-4">Refreshing treats on a stick.</p>
+                    <button class="add-to-cart-btn block w-full text-center bg-[#1c3a63] text-white py-3 rounded-xl font-bold tracking-widest hover:bg-[#5ac1b0] transition-colors mt-auto" data-name="Ice-Cream Popsicles">
+                        ADD TO CART
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- SAUCES -->
+        <section id="shop-sauces" class="max-w-6xl mx-auto relative pt-10">
+            <h2 class="font-display text-4xl text-[#1c3a63] mb-8 border-b-4 border-[#1c3a63]/10 pb-4">SAUCES</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Item -->
+                <div class="bg-white rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all border-4 border-transparent hover:border-[#1c3a63] group">
+                    <div class="bg-[#facc15] rounded-2xl aspect-square mb-6 flex items-center justify-center overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1607532941433-304659e8198a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Hot Sauce" loading="lazy" class="w-2/4 h-3/4 object-cover shadow-md rounded-lg group-hover:scale-105 transition-transform">
+                    </div>
+                    <h3 class="font-black text-xl text-[#1c3a63] mb-2 tracking-wider">HOT SAUCE</h3>
+                    <p class="text-base text-[#1c3a63]/70 font-bold tracking-widest mb-4">Bring the heat to any meal.</p>
+                    <button class="add-to-cart-btn block w-full text-center bg-[#1c3a63] text-white py-3 rounded-xl font-bold tracking-widest hover:bg-[#facc15] hover:text-[#1c3a63] transition-colors mt-auto" data-name="Hot Sauce">
+                        ADD TO CART
+                    </button>
+                </div>
+                <!-- Item -->
+                <div class="bg-white rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all border-4 border-transparent hover:border-[#1c3a63] group">
+                    <div class="bg-[#facc15] rounded-2xl aspect-square mb-6 flex items-center justify-center overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1558231221-a18ac49bfe38?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Caramel" loading="lazy" class="w-2/3 h-2/3 object-cover shadow-md rounded-lg group-hover:-rotate-6 transition-transform">
+                    </div>
+                    <h3 class="font-black text-xl text-[#1c3a63] mb-2 tracking-wider">CARAMEL & CHOCOLATE</h3>
+                    <p class="text-base text-[#1c3a63]/70 font-bold tracking-widest mb-4">Sweet drizzles for your sweet tooth.</p>
+                    <button class="add-to-cart-btn block w-full text-center bg-[#1c3a63] text-white py-3 rounded-xl font-bold tracking-widest hover:bg-[#facc15] hover:text-[#1c3a63] transition-colors mt-auto" data-name="Caramel & Chocolate Sauce">
+                        ADD TO CART
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <div class="flex justify-center mt-16 pb-16">
+            <button id="shop-open-cart-btn" class="inline-block bg-[#1c3a63] text-white px-12 py-4 rounded-full font-display text-2xl hover:scale-105 transition-transform drop-shadow-xl border-4 border-[#1c3a63]">
+                VIEW CART
+            </button>
+        </div>
+    </main>
+
+    <!-- --- FOOTER --- -->
+    <footer class="bg-[#f5ebd9] py-8 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between relative z-10 border-t-4 border-[#e891b6]/20">
+        <!-- Decoration -->
+        <img src="img/yellow-flower.png" class="absolute left-10 bottom-4 w-24 h-24 object-contain transform -rotate-12 opacity-50 drop-shadow-md" loading="lazy" alt="">
+        
+        <!-- 18+ Badge -->
+        <div class="flex-shrink-0 mb-6 md:mb-0 relative z-10 w-20 h-20">
+            <img src="img/18+.png" alt="18+ Only" loading="lazy" class="w-full h-full object-contain drop-shadow-md">
+        </div>
+
+        <!-- Disclaimer Text -->
+        <div class="flex-grow text-center max-w-3xl px-4">
+            <ul class="text-xs md:text-sm font-bold tracking-widest text-[#1c3a63] leading-relaxed list-none space-y-1">
+                <li>* DO NOT CONSUME IF PREGNANT OR BREASTFEEDING, OR EXPERIENCE PSYCHOSIS.</li>
+                <li>* MAY TAKE UP TO 30 MINUTES OR MORE TO TAKE AFFECT.</li>
+                <li>* DO NOT CONSUME IF YOU WILL BE DRIVING OR OPERATING HEAVY MACHINERY.</li>
+                <li>* NOT FOR PERSONS UNDER THE AGE OF 18.</li>
+                <li>* CONSUME WITH CAUTION. DO NOT EXCEED RECOMMENDED DOSAGE.</li>
+                <li>* DO NOT MIX WITH ALCOHOL OR OTHER SUBSTANCES.</li>
+                <li>* FIRST TIMERS SHOULD CONSUME HALF AS A STARTER.</li>
+            </ul>
+        </div>
+
+        <!-- Footer Logo area -->
+        <div class="flex-shrink-0 mt-6 md:mt-0 relative">
+            <img src="img/logo.png" alt="Dipped Shx Logo" class="w-16 h-16 object-contain opacity-50 drop-shadow-md">
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="fixed inset-y-0 right-0 w-full sm:w-[400px] bg-[#f5ebd9] shadow-2xl z-[250] transform translate-x-full transition-transform duration-300 flex flex-col border-l-4 border-[#1c3a63]">
+        <div class="p-6 border-b-2 border-[#1c3a63]/10 flex justify-between items-center">
+            <h2 class="font-display text-3xl text-[#1c3a63]">YOUR CART</h2>
+            <button id="close-cart" aria-label="Close Cart" class="text-[#1c3a63] hover:text-[#e891b6] transition-colors">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div id="cart-items" class="flex-grow p-6 overflow-y-auto space-y-4">
+            <!-- Items injected by JS -->
+            <p class="text-center font-bold tracking-widest text-[#1c3a63]/50 mt-10" id="empty-cart-msg">YOUR CART IS EMPTY</p>
+        </div>
+        <div class="p-6 border-t-2 border-[#1c3a63]/10 bg-white">
+            <button id="checkout-btn" class="w-full bg-[#1c3a63] text-white py-4 rounded-xl font-bold tracking-widest hover:bg-[#e891b6] transition-colors flex justify-center items-center gap-2 mb-3">
+                CHECKOUT VIA WHATSAPP
+            </button>
+            <button id="clear-cart-btn" class="w-full text-[#1c3a63]/50 text-xs font-bold tracking-widest hover:text-red-500 transition-colors uppercase py-2">
+                CLEAR CART
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-[#f5ebd9]/95 backdrop-blur-md z-[100] transform translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center">
+        <button id="close-menu" aria-label="Close Menu" class="absolute top-6 right-6 text-[#1c3a63]">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <div class="flex flex-col gap-8 font-display text-3xl tracking-wider text-[#1c3a63] text-center">
+            <a href="index.html#home" class="mobile-link hover:text-[#e891b6] transition-colors">HOME</a>
+            <a href="shop.html" class="mobile-link hover:text-[#e891b6] transition-colors">SHOP ALL</a>
+            <a href="index.html#about" class="mobile-link hover:text-[#e891b6] transition-colors">ABOUT US</a>
+            <a href="index.html#contact" class="mobile-link hover:text-[#e891b6] transition-colors">CONTACT</a>
+        </div>
+    </div>
+
+    <!-- 18+ Modal -->
+    <div id="age-modal" class="fixed inset-0 bg-[#1c3a63]/80 backdrop-blur-md z-[200] flex items-center justify-center transition-opacity duration-500 opacity-0 pointer-events-none">
+        <div class="bg-[#f5ebd9] p-8 md:p-12 rounded-[3rem] text-center max-w-lg mx-6 border-8 border-[#e891b6] shadow-2xl transform scale-95 transition-transform duration-500" id="age-modal-content">
+            <div class="flex justify-center mb-6">
+                <!-- Warning badge -->
+                <img src="img/18+.png" alt="18+ Warning" class="w-24 h-24 object-contain drop-shadow-md">
+            </div>
+            <h2 class="font-display text-4xl md:text-5xl text-[#1c3a63] mb-6">ARE YOU 18 OR OLDER?</h2>
+            <p class="font-bold text-sm tracking-widest text-[#1c3a63] leading-relaxed mb-8">
+                THIS SITE CONTAINS CONTENT AND PRODUCTS STRICTLY FOR ADULTS. YOU MUST BE 18+ TO ENTER.
+            </p>
+
+            <!-- Step 1: Yes / No buttons -->
+            <div id="age-step-1" class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button id="age-yes" class="bg-[#1c3a63] text-[#f5ebd9] px-8 py-3 rounded-2xl font-bold tracking-widest hover:scale-105 transition-transform">
+                    YES, I AM 18+
+                </button>
+                <button id="age-no" class="bg-[#e891b6] text-white px-8 py-3 rounded-2xl font-bold tracking-widest hover:scale-105 transition-transform">
+                    NO, I AM NOT
+                </button>
+            </div>
+
+            <!-- Step 2: DOB form -->
+            <div id="age-step-2" class="hidden flex-col items-center gap-4 justify-center w-full max-w-sm mx-auto">
+                <div class="w-full text-left">
+                    <label for="dob-input" class="block font-bold text-[#1c3a63] text-sm tracking-widest mb-2">PLEASE VERIFY YOUR DATE OF BIRTH:</label>
+                    <input type="date" id="dob-input" class="w-full bg-white border-4 border-[#1c3a63] text-[#1c3a63] px-4 py-3 rounded-2xl font-bold tracking-widest focus:outline-none focus:border-[#e891b6] transition-colors">
+                </div>
+                <button id="verify-age-btn" class="w-full bg-[#1c3a63] text-[#f5ebd9] px-8 py-3 rounded-2xl font-bold tracking-widest hover:scale-105 transition-transform mt-2">
+                    VERIFY
+                </button>
+            </div>
+
+            <div id="age-error" class="hidden mt-4 text-red-600 font-bold tracking-widest text-sm">
+                YOU MUST BE 18+ TO VIEW THIS SITE.
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-[#1c3a63] text-[#f5ebd9] p-4 flex flex-col md:flex-row items-center justify-between z-[90] transition-transform duration-500 translate-y-full border-t-4 border-[#e891b6]">
+        <div class="text-xs md:text-sm font-bold tracking-widest mb-4 md:mb-0 max-w-3xl">
+            WE USE COOKIES TO ENHANCE YOUR EXPERIENCE. BY CONTINUING TO VISIT THIS SITE YOU AGREE TO OUR USE OF COOKIES.
+        </div>
+        <button id="accept-cookies" class="bg-[#e891b6] text-[#1c3a63] px-6 py-2 rounded-xl font-bold hover:bg-white transition-colors tracking-widest text-sm whitespace-nowrap">
+            GOT IT
+        </button>
+    </div>
+
+    <!-- Product Modal -->
+    <div id="product-modal" class="fixed inset-0 bg-[#1c3a63]/80 backdrop-blur-md z-[150] flex items-center justify-center transition-opacity duration-300 opacity-0 pointer-events-none p-6">
+        <div class="bg-[#f5ebd9] p-8 md:p-12 rounded-[2rem] w-full max-w-lg border-4 border-[#e891b6] shadow-2xl relative transform scale-95 transition-transform duration-300" id="product-modal-content">
+            <button id="close-product-modal" class="absolute top-6 right-6 text-[#1c3a63] hover:text-[#e891b6] transition-colors">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <h2 id="modal-title" class="font-display text-4xl text-[#1c3a63] mb-6">MENU</h2>
+            <div id="modal-body" class="space-y-4 text-[#1c3a63] font-bold text-sm tracking-widest leading-relaxed">
+                <!-- Content injected via JS -->
+            </div>
+            <div class="mt-8 pt-6 border-t-2 border-[#1c3a63]/10 text-center">
+                <a href="https://wa.me/27621201496" target="_blank" class="inline-block bg-[#e891b6] text-white px-8 py-3 rounded-2xl font-bold tracking-widest hover:scale-105 transition-transform">
+                    ORDER ON WHATSAPP
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Up Button -->
+    <button id="scroll-up" class="fixed bottom-6 right-6 bg-[#e891b6] text-white p-4 rounded-full shadow-2xl z-[80] transform translate-y-20 opacity-0 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-[#1c3a63]/20">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <!-- Minimal JS to handle basic functionality if needed later -->
+    <script src="script.js"></script>
+</body>
+</html>

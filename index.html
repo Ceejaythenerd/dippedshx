@@ -3,151 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dipped Shxt</title>
+    <title>Dipped Shx</title>
+    <meta name="description" content="Dipped Shx - Premium Handcrafted Infused Treats. Satisfy your sweet and savory cravings." />
+    <meta property="og:title" content="Dipped Shx" />
+    <meta property="og:description" content="Premium Handcrafted Infused Treats." />
+    <meta property="og:type" content="website" />
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Global Styles for Fonts and specific text effects -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Chewy&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
-
-        .font-display {
-            font-family: 'Chewy', system-ui;
-            letter-spacing: 0.05em;
-        }
-
-        /* Outline text for dark backgrounds */
-        .text-outline-cream {
-            text-shadow: 
-                -2px -2px 0 #f5ebd9,  
-                 2px -2px 0 #f5ebd9,
-                -2px  2px 0 #f5ebd9,
-                 2px  2px 0 #f5ebd9,
-                 0px 4px 4px rgba(0,0,0,0.1);
-        }
-
-        /* Standard text shadow for depth */
-        .text-depth-blue {
-            text-shadow: 2px 2px 0px rgba(28, 58, 99, 0.2);
-        }
-
-        .text-depth-cream {
-            text-shadow: 2px 2px 0px rgba(245, 235, 217, 0.4);
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/logo.png">
 </head>
 <body class="min-h-screen bg-[#f5ebd9] text-[#1c3a63] font-mono overflow-x-hidden relative selection:bg-[#e891b6] selection:text-white">
 
     <!-- --- Navigation --- -->
     <nav class="fixed top-0 w-full z-50 flex items-center justify-between px-6 py-4 md:px-12 bg-[#f5ebd9]/90 backdrop-blur-sm">
         <div class="flex items-center gap-2">
-            <!-- Faux Logo -->
-            <div class="relative w-12 h-12">
-                <!-- Flower Decoration -->
-                <svg viewBox="0 0 100 100" class="absolute -top-1 -left-1 w-6 h-6 text-[#f5ebd9] fill-[#facc15]" xmlns="http://www.w3.org/2000/svg">
-                    <g stroke="#1c3a63" stroke-width="4" stroke-linejoin="round">
-                        <path d="M50,15 C60,-5 80,10 70,30 C90,20 105,40 85,50 C105,60 90,80 70,70 C80,90 60,105 50,85 C40,105 20,90 30,70 C10,80 -5,60 15,50 C-5,40 10,20 30,30 C20,10 40,-5 50,15 Z" fill="currentColor"/>
-                        <circle cx="50" cy="50" r="18" fill="white" />
-                        <circle cx="43" cy="46" r="3" fill="#1c3a63" />
-                        <circle cx="57" cy="46" r="3" fill="#1c3a63" />
-                        <path d="M42,54 Q50,62 58,54" fill="none" stroke-width="3" stroke-linecap="round" />
-                    </g>
-                </svg>
-                <div class="font-display text-[#e891b6] text-xl leading-none text-outline-cream transform -rotate-12">DIPPED<br/>SHXT</div>
+            <!-- Brand Logo -->
+            <div class="relative w-16 h-16 md:w-20 md:h-20 flex-shrink-0">
+                <img src="img/logo.png" alt="Dipped Shx Logo" class="w-full h-full object-contain drop-shadow-md hover:scale-105 transition-transform cursor-pointer" onclick="window.scrollTo(0,0)">
             </div>
         </div>
         
         <div class="hidden md:flex gap-8 font-display text-xl tracking-wider text-[#1c3a63]">
-            <a href="#home" class="hover:text-[#e891b6] transition-colors">HOME</a>
-            <a href="#products" class="hover:text-[#e891b6] transition-colors">PRODUCTS</a>
-            <a href="#about" class="hover:text-[#e891b6] transition-colors">ABOUT US</a>
-            <a href="#contact" class="hover:text-[#e891b6] transition-colors">CONTACT</a>
+            <a href="index.html#home" class="hover:text-[#e891b6] transition-colors">HOME</a>
+            <a href="shop.html" class="hover:text-[#e891b6] transition-colors">SHOP</a>
+            <a href="index.html#about" class="hover:text-[#e891b6] transition-colors">ABOUT US</a>
+            <a href="index.html#contact" class="hover:text-[#e891b6] transition-colors">CONTACT</a>
         </div>
         
-        <!-- Mobile menu placeholder -->
-        <div class="md:hidden font-display text-xl cursor-pointer hover:text-[#e891b6] transition-colors">MENU</div>
+        <div class="flex items-center gap-6">
+            <!-- Cart Button -->
+            <button id="open-cart" aria-label="Open Shopping Cart" class="relative text-[#1c3a63] hover:text-[#e891b6] transition-colors focus:outline-none">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                <span id="cart-count" class="absolute -top-2 -right-2 bg-[#e891b6] text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm">0</span>
+            </button>
+            <!-- Mobile menu toggle -->
+            <button id="open-menu" aria-label="Open Navigation Menu" class="md:hidden font-display text-xl cursor-pointer hover:text-[#e891b6] transition-colors focus:outline-none">MENU</button>
+        </div>
     </nav>
 
     <!-- --- HERO SECTION --- -->
     <section id="home" class="relative pt-32 pb-20 px-6 md:px-12 min-h-[90vh] flex flex-col md:flex-row items-center">
         <!-- Decorations -->
-        <svg viewBox="0 0 100 100" class="absolute top-32 left-10 w-16 h-16 text-[#f5ebd9] fill-[#facc15] transform -rotate-12" xmlns="http://www.w3.org/2000/svg">
-            <g stroke="#1c3a63" stroke-width="4" stroke-linejoin="round">
-                <path d="M50,15 C60,-5 80,10 70,30 C90,20 105,40 85,50 C105,60 90,80 70,70 C80,90 60,105 50,85 C40,105 20,90 30,70 C10,80 -5,60 15,50 C-5,40 10,20 30,30 C20,10 40,-5 50,15 Z" fill="currentColor"/>
-                <circle cx="50" cy="50" r="18" fill="white" />
-                <circle cx="43" cy="46" r="3" fill="#1c3a63" />
-                <circle cx="57" cy="46" r="3" fill="#1c3a63" />
-                <path d="M42,54 Q50,62 58,54" fill="none" stroke-width="3" stroke-linecap="round" />
-            </g>
-        </svg>
-
-        <svg viewBox="0 0 100 100" class="absolute bottom-1/4 right-1/4 w-12 h-12 text-[#f5ebd9] fill-[#facc15] transform rotate-45 z-10 hidden md:block" xmlns="http://www.w3.org/2000/svg">
-            <g stroke="#1c3a63" stroke-width="4" stroke-linejoin="round">
-                <path d="M50,15 C60,-5 80,10 70,30 C90,20 105,40 85,50 C105,60 90,80 70,70 C80,90 60,105 50,85 C40,105 20,90 30,70 C10,80 -5,60 15,50 C-5,40 10,20 30,30 C20,10 40,-5 50,15 Z" fill="currentColor"/>
-                <circle cx="50" cy="50" r="18" fill="white" />
-                <circle cx="43" cy="46" r="3" fill="#1c3a63" />
-                <circle cx="57" cy="46" r="3" fill="#1c3a63" />
-                <path d="M42,54 Q50,62 58,54" fill="none" stroke-width="3" stroke-linecap="round" />
-            </g>
-        </svg>
+        <img src="img/yellow-flower.png" class="absolute top-32 left-10 w-24 h-24 object-contain transform -rotate-12 drop-shadow-md" alt="">
+        <img src="img/purple-flower.png" class="absolute bottom-1/4 right-10 w-24 h-24 object-contain transform rotate-45 z-10 hidden md:block drop-shadow-md" alt="">
 
         <!-- Left Content -->
         <div class="w-full md:w-1/2 z-10 mb-12 md:mb-0">
-            <h1 class="font-display text-5xl md:text-7xl text-[#1c3a63] mb-8 leading-tight text-depth-cream drop-shadow-md">
+            <h1 class="font-display text-6xl md:text-[7rem] text-[#1c3a63] mb-8 leading-tight text-depth-cream drop-shadow-md">
                 HEY THERE<br />DIPPER!
             </h1>
             
-            <div class="space-y-4 max-w-sm text-sm font-bold tracking-widest leading-relaxed">
-                <p>TEXT TEXT TEXT TEXT TEXT<br/>
-                   TEXT TEXT TEXT TEXT TEXT<br/>
-                   TEXT TEXT TEXT TEXT TEXT<br/>
-                   TEXT TEXT TEXT TEXT TEXT</p>
+            <div class="space-y-4 max-w-lg text-lg md:text-xl font-bold tracking-widest leading-relaxed">
+                <p>Welcome to Dipped Shx! Elevate your snack game with our premium infused treats. From sweet to savory, we've got the perfect dip for your trip.</p>
             </div>
         </div>
 
-        <!-- Right Content - Giant Cookie & Mascot -->
+        <!-- Right Content - Hero Bud -->
         <div class="w-full md:w-1/2 relative h-[50vh] md:h-[70vh] flex justify-center items-center">
-            <div class="relative w-[300px] h-[300px] md:w-[500px] md:h-[500px]">
-                <!-- Cookie Image -->
+            <div class="relative w-[300px] h-[300px] md:w-[600px] md:h-[600px]">
                 <img 
-                    src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                    alt="Giant Chocolate Chip Cookie" 
-                    class="w-full h-full object-cover rounded-full shadow-2xl absolute inset-0 transform rotate-12 hover:rotate-6 transition-transform duration-700"
+                    src="img/hero-bud.png" 
+                    alt="Hero Bud Mascot" 
+                    class="w-full h-full object-contain absolute inset-0 drop-shadow-2xl transform hover:scale-105 transition-transform duration-700"
                 />
-                <!-- Mascot Overlay (Cheer Pose) -->
-                <div class="absolute top-[-10%] left-[20%] w-[60%] h-[80%] z-20 drop-shadow-2xl">
-                    <svg viewBox="0 0 200 300" class="w-full h-full drop-shadow-2xl" xmlns="http://www.w3.org/2000/svg">
-                        <g stroke="#1c3a63" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
-                            <!-- Left Arm -->
-                            <path d="M60,100 Q40,60 50,20" fill="none" stroke-width="6" />
-                            <path d="M40,20 C40,10 60,10 60,20 C60,30 40,30 40,20" fill="white" />
-                            <!-- Right Arm -->
-                            <path d="M140,100 Q160,60 150,20" fill="none" stroke-width="6" />
-                            <path d="M140,20 C140,10 160,10 160,20 C160,30 140,30 140,20" fill="white" />
-                            <!-- Legs -->
-                            <path d="M80,220 V270" fill="none" stroke-width="6" />
-                            <path d="M65,270 Q80,260 95,270 Q85,290 65,285 Z" fill="#ff99cc" />
-                            <path d="M120,220 V270" fill="none" stroke-width="6" />
-                            <path d="M105,270 Q120,260 135,270 Q125,290 105,285 Z" fill="#ff99cc" />
-                            
-                            <!-- Main Body -->
-                            <path d="M100,50 C130,40 150,70 145,90 C170,100 170,130 155,145 C175,170 150,210 120,200 C110,220 80,220 70,195 C40,200 30,160 45,140 C25,120 40,80 60,85 C60,55 80,45 100,50 Z" fill="#5a9a6c" />
-                            
-                            <!-- Face -->
-                            <g>
-                                <ellipse cx="85" cy="120" rx="12" ry="18" fill="white" />
-                                <circle cx="90" cy="120" r="5" fill="#1c3a63" />
-                                <ellipse cx="120" cy="120" rx="12" ry="18" fill="white" />
-                                <circle cx="115" cy="120" r="5" fill="#1c3a63" />
-                                <path d="M75,100 Q85,90 95,100" fill="none" stroke-width="3" />
-                                <path d="M110,100 Q120,95 130,105" fill="none" stroke-width="3" />
-                                <path d="M85,145 Q100,165 115,145 Z" fill="#1c3a63" />
-                                <path d="M95,150 Q100,160 105,150 Z" fill="#ff99cc" stroke="none" />
-                            </g>
-                        </g>
-                    </svg>
-                </div>
             </div>
         </div>
     </section>
@@ -159,85 +87,86 @@
         </svg>
     </div>
 
-    <!-- --- PRODUCTS SECTION --- -->
-    <section id="products" class="bg-[#e891b6] relative pt-12 pb-32 px-6 md:px-12 z-10">
+    <!-- --- SHOP SECTION --- -->
+    <section id="shop" class="bg-[#e891b6] relative pt-12 pb-32 px-6 md:px-12 z-10">
         <!-- Decoration -->
-        <svg viewBox="0 0 100 100" class="absolute top-10 right-10 w-16 h-16 text-[#f5ebd9] fill-[#facc15] transform rotate-12" xmlns="http://www.w3.org/2000/svg">
-            <g stroke="#1c3a63" stroke-width="4" stroke-linejoin="round">
-                <path d="M50,15 C60,-5 80,10 70,30 C90,20 105,40 85,50 C105,60 90,80 70,70 C80,90 60,105 50,85 C40,105 20,90 30,70 C10,80 -5,60 15,50 C-5,40 10,20 30,30 C20,10 40,-5 50,15 Z" fill="currentColor"/>
-                <circle cx="50" cy="50" r="18" fill="white" />
-                <circle cx="43" cy="46" r="3" fill="#1c3a63" />
-                <circle cx="57" cy="46" r="3" fill="#1c3a63" />
-                <path d="M42,54 Q50,62 58,54" fill="none" stroke-width="3" stroke-linecap="round" />
-            </g>
-        </svg>
+        <img src="img/yellow-flower.png" class="absolute top-10 right-10 w-24 h-24 object-contain transform rotate-12 drop-shadow-md" alt="">
+
         
-        <h2 class="font-display text-5xl md:text-7xl text-center text-[#1c3a63] text-outline-cream mb-16">
-            PRODUCTS
+        <h2 class="font-display text-5xl md:text-6xl text-center text-[#1c3a63] text-outline-cream mb-16">
+            FEATURED PRODUCTS
         </h2>
 
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-            <!-- Card 1: Sweet -->
-            <div class="flex flex-col items-center group">
-                <h3 class="font-display text-2xl text-[#f5ebd9] mb-6 text-outline-blue tracking-wider">SWEET</h3>
+            <!-- Card 1: Cookies -->
+            <div class="flex flex-col items-center group cursor-pointer product-card" data-product="cookies">
+                <h3 class="font-display text-2xl text-[#f5ebd9] mb-6 text-outline-blue tracking-wider">COOKIES</h3>
                 <div class="bg-[#1c3a63] p-4 rounded-3xl mb-6 w-full max-w-[280px] aspect-square flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform">
-                    <div class="absolute inset-2 border-2 border-[#5ac1b0] rounded-2xl pointer-events-none"></div>
+                    <div class="absolute inset-2 border-2 border-[#5ac1b0] rounded-2xl pointer-events-none z-10"></div>
                     <img 
-                        src="https://images.unsplash.com/photo-1563805042-7684c8e9e533?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                        alt="Ice Cream" 
-                        class="w-4/5 h-4/5 object-cover rounded-full shadow-lg"
+                        src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                        alt="Cookies" 
+                        loading="lazy"
+                        class="w-4/5 h-4/5 object-cover rounded-full shadow-lg transform rotate-12"
                     />
                 </div>
-                <p class="font-bold text-sm tracking-widest text-[#1c3a63] leading-relaxed">
-                    COOKIES<br/>ICE CREAM<br/>LEMONADE
+                <p class="font-bold text-base md:text-lg tracking-widest text-[#1c3a63] leading-relaxed">
+                    COOKIES<br/>BROWNIES
                 </p>
             </div>
 
-            <!-- Card 2: Savory -->
-            <div class="flex flex-col items-center group">
-                <h3 class="font-display text-2xl text-[#f5ebd9] mb-6 text-outline-blue tracking-wider">SAVORY</h3>
+            <!-- Card 2: Ice-Creams -->
+            <div class="flex flex-col items-center group cursor-pointer product-card" data-product="icecreams">
+                <h3 class="font-display text-2xl text-[#f5ebd9] mb-6 text-outline-blue tracking-wider">ICE-CREAMS</h3>
                 <div class="bg-[#1c3a63] p-4 rounded-3xl mb-6 w-full max-w-[280px] aspect-square flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform">
                     <div class="absolute inset-2 border-2 border-[#5ac1b0] rounded-2xl pointer-events-none z-10"></div>
-                    <div class="flex gap-4">
+                    <img 
+                        src="https://images.unsplash.com/photo-1563805042-7684c8e9e533?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                        alt="Ice Cream" 
+                        loading="lazy"
+                        class="w-4/5 h-4/5 object-cover rounded-full shadow-lg"
+                    />
+                </div>
+                <p class="font-bold text-base md:text-lg tracking-widest text-[#1c3a63] leading-relaxed">
+                    SANDWICHES<br/>TUBS<br/>POPSICLES
+                </p>
+            </div>
+
+            <!-- Card 3: Sauces -->
+            <div class="flex flex-col items-center group cursor-pointer product-card" data-product="sauces">
+                <h3 class="font-display text-2xl text-[#f5ebd9] mb-6 text-outline-blue tracking-wider">SAUCES</h3>
+                <div class="bg-[#1c3a63] p-4 rounded-3xl mb-6 w-full max-w-[280px] aspect-square flex items-center justify-center relative group-hover:scale-105 transition-transform overflow-hidden">
+                    <div class="absolute inset-2 border-2 border-[#5ac1b0] rounded-2xl pointer-events-none z-10"></div>
+                    <div class="flex gap-4 z-0">
                         <img 
                             src="https://images.unsplash.com/photo-1607532941433-304659e8198a?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
                             alt="Sauce Bottle 1" 
+                            loading="lazy"
                             class="w-16 h-32 object-cover rounded-md transform -rotate-6 shadow-md"
                         />
                         <img 
                             src="https://images.unsplash.com/photo-1607532941433-304659e8198a?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
                             alt="Sauce Bottle 2" 
+                            loading="lazy"
                             class="w-16 h-32 object-cover rounded-md transform rotate-6 shadow-md mt-4"
                         />
                     </div>
                 </div>
-                <p class="font-bold text-sm tracking-widest text-[#1c3a63] leading-relaxed">
-                    BILTONG<br/>HOTSAUCE<br/>CHIP DIP
+                <p class="font-bold text-base md:text-lg tracking-widest text-[#1c3a63] leading-relaxed">
+                    HOT SAUCES<br/>CARAMEL<br/>CHOCOLATE
                 </p>
             </div>
+        </div>
 
-            <!-- Card 3: Prerolls -->
-            <div class="flex flex-col items-center group">
-                <h3 class="font-display text-2xl text-[#f5ebd9] mb-6 text-outline-blue tracking-wider">PREROLLS &<br/>MERCH</h3>
-                <div class="bg-[#1c3a63] p-4 rounded-3xl mb-6 w-full max-w-[280px] aspect-square flex items-center justify-center relative group-hover:scale-105 transition-transform">
-                    <div class="absolute inset-2 border-2 border-[#5ac1b0] rounded-2xl pointer-events-none"></div>
-                    <!-- Empty placeholder as in image -->
-                </div>
-                <p class="font-bold text-sm tracking-widest text-[#1c3a63] leading-relaxed">
-                    BILTONG<br/>HOTSAUCE<br/>CHIP DIP
-                </p>
-            </div>
+        <div class="mt-16 flex justify-center z-20 relative">
+            <a href="shop.html" class="inline-block bg-[#f5ebd9] text-[#1c3a63] border-4 border-[#1c3a63] font-display text-2xl md:text-3xl px-12 py-4 rounded-[40px] shadow-xl hover:scale-105 hover:bg-[#1c3a63] hover:text-[#f5ebd9] transition-all duration-300 pointer-events-auto">
+                SHOP ALL
+            </a>
         </div>
     </section>
 
     <!-- --- WAVE 2: Pink to Cream --- -->
-    <div class="w-full relative -mt-1 bg-[#e891b6]">
-        <!-- Decorative half cookie sticking out of the wave -->
-        <img 
-            src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-            alt="Cookie bite" 
-            class="absolute right-[-10%] top-1/2 w-64 h-64 object-cover rounded-full shadow-xl z-20 hidden md:block"
-        />
+    <div class="w-full relative -mt-1 bg-[#e891b6] z-0">
         <svg viewBox="0 0 1440 200" class="w-full h-auto block" preserveAspectRatio="none">
             <path fill="#f5ebd9" d="M0,128 C480,300 960,-60 1440,64 L1440,200 L0,200 Z" />
         </svg>
@@ -245,56 +174,23 @@
 
     <!-- --- ABOUT US SECTION --- -->
     <section id="about" class="bg-[#f5ebd9] relative pt-20 pb-32 px-6 md:px-12 overflow-hidden">
-        <!-- Crumb decorations -->
-        <div class="absolute top-20 left-1/4 w-3 h-3 bg-[#8b5a2b] rounded-full opacity-60"></div>
-        <div class="absolute top-40 right-1/3 w-2 h-2 bg-[#8b5a2b] rounded-full opacity-60"></div>
-        <div class="absolute bottom-20 right-10 w-4 h-4 bg-[#8b5a2b] rounded-full opacity-60"></div>
+        
+        <!-- Ice Cream Background Decoration (Behind Text) -->
+        <img 
+            src="img/icre-cream.png" 
+            alt="Ice Cream Decoration Background" 
+            loading="lazy"
+            class="absolute right-[-10%] top-0 w-[48rem] h-[48rem] object-contain z-0 hidden md:block opacity-40 pointer-events-none"
+        />
         
         <!-- Decoration -->
-        <svg viewBox="0 0 100 100" class="absolute right-4 top-1/4 w-12 h-12 text-[#f5ebd9] fill-[#facc15] transform rotate-90" xmlns="http://www.w3.org/2000/svg">
-            <g stroke="#1c3a63" stroke-width="4" stroke-linejoin="round">
-                <path d="M50,15 C60,-5 80,10 70,30 C90,20 105,40 85,50 C105,60 90,80 70,70 C80,90 60,105 50,85 C40,105 20,90 30,70 C10,80 -5,60 15,50 C-5,40 10,20 30,30 C20,10 40,-5 50,15 Z" fill="currentColor"/>
-                <circle cx="50" cy="50" r="18" fill="white" />
-                <circle cx="43" cy="46" r="3" fill="#1c3a63" />
-                <circle cx="57" cy="46" r="3" fill="#1c3a63" />
-                <path d="M42,54 Q50,62 58,54" fill="none" stroke-width="3" stroke-linecap="round" />
-            </g>
-        </svg>
+        <img src="img/purple-flower.png" class="absolute right-[20%] top-10 w-24 h-24 object-contain transform rotate-45 drop-shadow-md z-0" alt="">
 
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-            <!-- Left: Walking Mascot -->
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 relative z-20">
+            <!-- Left: Mascot bud-Hi -->
             <div class="w-full md:w-1/2 flex justify-center relative">
                 <div class="w-[300px] h-[400px] md:w-[450px] md:h-[500px]">
-                    <svg viewBox="0 0 200 300" class="w-full h-full drop-shadow-2xl" xmlns="http://www.w3.org/2000/svg">
-                        <g stroke="#1c3a63" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
-                            <!-- Left Arm Walk -->
-                            <path d="M70,200 Q40,250 50,280" fill="none" stroke-width="6" />
-                            <path d="M30,280 Q50,270 70,280 Q70,300 40,295 Z" fill="#ff99cc" />
-                            <path d="M50,140 Q10,150 20,180" fill="none" stroke-width="6" />
-                            <circle cx="20" cy="180" r="10" fill="white" />
-                            
-                            <!-- Right Arm Walk -->
-                            <path d="M130,200 Q150,240 140,280" fill="none" stroke-width="6" />
-                            <path d="M120,280 Q140,270 160,280 Q150,300 120,295 Z" fill="#ff99cc" />
-                            <path d="M150,120 Q180,100 190,70" fill="none" stroke-width="6" />
-                            <path d="M180,70 Q190,50 200,60 Q195,75 190,80 Z" fill="white"/>
-                            
-                            <!-- Main Body -->
-                            <path d="M100,50 C130,40 150,70 145,90 C170,100 170,130 155,145 C175,170 150,210 120,200 C110,220 80,220 70,195 C40,200 30,160 45,140 C25,120 40,80 60,85 C60,55 80,45 100,50 Z" fill="#5a9a6c" />
-                            
-                            <!-- Face -->
-                            <g>
-                                <ellipse cx="85" cy="120" rx="12" ry="18" fill="white" />
-                                <circle cx="90" cy="120" r="5" fill="#1c3a63" />
-                                <ellipse cx="120" cy="120" rx="12" ry="18" fill="white" />
-                                <circle cx="115" cy="120" r="5" fill="#1c3a63" />
-                                <path d="M75,100 Q85,90 95,100" fill="none" stroke-width="3" />
-                                <path d="M110,100 Q120,95 130,105" fill="none" stroke-width="3" />
-                                <path d="M85,145 Q100,165 115,145 Z" fill="#1c3a63" />
-                                <path d="M95,150 Q100,160 105,150 Z" fill="#ff99cc" stroke="none" />
-                            </g>
-                        </g>
-                    </svg>
+                    <img src="img/bud-Hi.png" alt="Mascot Saying Hi" loading="lazy" class="w-full h-full object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500">
                 </div>
             </div>
 
@@ -304,19 +200,12 @@
                     ABOUT US
                 </h2>
                 
-                <div class="space-y-8 text-sm font-bold tracking-widest text-[#1c3a63] leading-loose max-w-md">
+                <div class="space-y-8 text-lg font-bold tracking-widest text-[#1c3a63] leading-loose max-w-md">
                     <p>
-                        TEXT TEXT TEXT TEXT TEXT<br/>
-                        TEXT TEXT TEXT TEXT TEXT<br/>
-                        TEXT TEXT TEXT TEXT TEXT<br/>
-                        TEXT TEXT
+                        At Dipped Shx, we craft high-quality infused edibles and snacks designed to elevate your experiences. Every treat is handcrafted for the perfect balance of flavor and potency.
                     </p>
                     <p>
-                        TEXT TEXT TEXT TEXT TEXT<br/>
-                        TEXT TEXT TEXT TEXT TEXT<br/>
-                        TEXT TEXT TEXT TEXT TEXT<br/>
-                        TEXT TEXT TEXT TEXT TEXT<br/>
-                        TEXT TEXT
+                        Whether you're craving something sweet like our signature chocolate chip cookies, or something savory like our infused biltong and chip dip, we prioritize safe, strictly 18+, top-shelf enjoyment.
                     </p>
                 </div>
             </div>
@@ -333,11 +222,15 @@
     <!-- --- CONTACT SECTION --- -->
     <section id="contact" class="bg-[#1c3a63] relative pt-12 pb-40 px-6 md:px-12 text-center text-[#f5ebd9]">
         
-        <!-- Left Decorative Cookie -->
+        <!-- Crumb decorations -->
+
+        
+        <!-- Left Decorative Mascot -->
         <img 
-            src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-            alt="Cookie Half" 
-            class="absolute left-[-50px] top-[20%] w-48 h-48 md:w-64 md:h-64 object-cover rounded-full opacity-90 transform -rotate-45"
+            src="img/bud-sandwich.png" 
+            alt="Mascot with Sandwich" 
+            loading="lazy"
+            class="absolute left-[-20px] top-[10%] w-72 h-72 md:w-[32rem] md:h-[32rem] object-contain drop-shadow-2xl"
         />
 
         <div class="max-w-4xl mx-auto relative z-10">
@@ -345,47 +238,49 @@
                 CONTACT
             </h2>
 
-            <p class="font-bold text-lg md:text-xl tracking-widest mb-16 leading-relaxed">
+            <p class="font-bold text-xl md:text-3xl tracking-widest mb-16 leading-relaxed">
                 GOT SOMETHING ON YOUR MIND?<br/>
                 LET US KNOW.
             </p>
 
-            <p class="font-bold text-sm tracking-widest mb-6">
+            <p class="font-bold text-base tracking-widest mb-6">
                 WHATSAPP FOR MORE INFORMATION OR ORDERS.
             </p>
             
-            <div class="flex items-center justify-center gap-6 mb-16">
-                <div class="bg-[#f5ebd9] text-[#1c3a63] p-3 rounded-2xl shadow-lg hover:scale-110 transition-transform cursor-pointer">
+            <a href="https://wa.me/27621201496" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-6 mb-16 group">
+                <div class="bg-[#f5ebd9] text-[#1c3a63] p-3 rounded-2xl shadow-lg group-hover:scale-110 transition-transform cursor-pointer">
                     <!-- Standard SVG Phone Icon replacing lucide-react -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                     </svg>
                 </div>
-                <span class="font-bold text-xl tracking-widest">062 1201 496</span>
-            </div>
+                <span class="font-bold text-xl tracking-widest group-hover:text-white transition-colors">062 1201 496</span>
+            </a>
 
-            <p class="font-bold text-sm tracking-widest mb-6">
+            <p class="font-bold text-base tracking-widest mb-6">
                 FOLLOW US ON SOCIALS
             </p>
 
-            <div class="flex items-center justify-center gap-6">
-                <div class="bg-[#f5ebd9] text-[#1c3a63] p-3 rounded-2xl shadow-lg hover:scale-110 transition-transform cursor-pointer flex items-center justify-center w-[56px] h-[56px]">
-                    <!-- Custom TikTok SVG icon -->
-                    <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
-                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.63 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z"/>
+            <a href="https://www.instagram.com/dippedshxtreats" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-6 group">
+                <div class="bg-[#f5ebd9] text-[#1c3a63] p-3 rounded-2xl shadow-lg group-hover:scale-110 transition-transform cursor-pointer flex items-center justify-center w-[56px] h-[56px]">
+                    <!-- Instagram SVG icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                     </svg>
                 </div>
-                <span class="font-bold text-xl tracking-widest">@DIPPEDSHXTREATS</span>
-            </div>
+                <span class="font-bold text-xl tracking-widest group-hover:text-white transition-colors">@DIPPEDSHXTREATS</span>
+            </a>
         </div>
 
         <!-- Right Decorative Cow -->
-        <div class="absolute right-0 bottom-[-50px] w-64 h-64 md:w-96 md:h-96 z-30 pointer-events-none">
+        <div class="absolute right-[-20px] bottom-[-20px] w-64 h-64 md:w-96 md:h-96 z-30 pointer-events-none">
             <img 
-                src="https://images.unsplash.com/photo-1546445317-29f4545e9d53?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                alt="Cow Face" 
-                class="w-full h-full object-cover rounded-tl-[100px] rounded-bl-[100px] border-8 border-[#f5ebd9] shadow-2xl transform rotate-12 translate-x-10"
-                style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%)"
+                src="img/cow.png" 
+                alt="Cow Mascot" 
+                loading="lazy"
+                class="w-full h-full object-contain drop-shadow-2xl transform hover:rotate-6 transition-transform"
             />
         </div>
     </section>
@@ -400,26 +295,16 @@
     <!-- --- FOOTER --- -->
     <footer class="bg-[#f5ebd9] py-8 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between relative z-10 border-t-4 border-[#e891b6]/20">
         <!-- Decoration -->
-        <svg viewBox="0 0 100 100" class="absolute left-4 bottom-4 w-12 h-12 text-[#f5ebd9] fill-[#facc15] transform -rotate-45" xmlns="http://www.w3.org/2000/svg">
-            <g stroke="#1c3a63" stroke-width="4" stroke-linejoin="round">
-                <path d="M50,15 C60,-5 80,10 70,30 C90,20 105,40 85,50 C105,60 90,80 70,70 C80,90 60,105 50,85 C40,105 20,90 30,70 C10,80 -5,60 15,50 C-5,40 10,20 30,30 C20,10 40,-5 50,15 Z" fill="currentColor"/>
-                <circle cx="50" cy="50" r="18" fill="white" />
-                <circle cx="43" cy="46" r="3" fill="#1c3a63" />
-                <circle cx="57" cy="46" r="3" fill="#1c3a63" />
-                <path d="M42,54 Q50,62 58,54" fill="none" stroke-width="3" stroke-linecap="round" />
-            </g>
-        </svg>
+        <img src="img/yellow-flower.png" class="absolute left-10 bottom-4 w-24 h-24 object-contain transform -rotate-12 opacity-50 drop-shadow-md" loading="lazy" alt="">
         
         <!-- 18+ Badge -->
-        <div class="flex-shrink-0 mb-6 md:mb-0 relative z-10">
-            <div class="w-16 h-16 rounded-full border-4 border-red-600 flex items-center justify-center bg-white shadow-md">
-                <span class="font-black text-2xl text-red-600">18+</span>
-            </div>
+        <div class="flex-shrink-0 mb-6 md:mb-0 relative z-10 w-20 h-20">
+            <img src="img/18+.png" alt="18+ Only" loading="lazy" class="w-full h-full object-contain drop-shadow-md">
         </div>
 
         <!-- Disclaimer Text -->
         <div class="flex-grow text-center max-w-3xl px-4">
-            <ul class="text-[0.65rem] md:text-xs font-bold tracking-widest text-[#1c3a63] leading-relaxed list-none space-y-1">
+            <ul class="text-xs md:text-sm font-bold tracking-widest text-[#1c3a63] leading-relaxed list-none space-y-1">
                 <li>* DO NOT CONSUME IF PREGNANT OR BREASTFEEDING, OR EXPERIENCE PSYCHOSIS.</li>
                 <li>* MAY TAKE UP TO 30 MINUTES OR MORE TO TAKE AFFECT.</li>
                 <li>* DO NOT CONSUME IF YOU WILL BE DRIVING OR OPERATING HEAVY MACHINERY.</li>
@@ -432,25 +317,129 @@
 
         <!-- Footer Logo area -->
         <div class="flex-shrink-0 mt-6 md:mt-0 relative">
-            <div class="font-display text-[#e891b6] text-xl text-outline-cream opacity-50 text-right">
-                DIPPED<br/>SHXT
-            </div>
-            <svg viewBox="0 0 100 100" class="absolute -top-4 -right-4 w-8 h-8 text-[#f5ebd9] fill-[#facc15] opacity-50" xmlns="http://www.w3.org/2000/svg">
-                <g stroke="#1c3a63" stroke-width="4" stroke-linejoin="round">
-                    <path d="M50,15 C60,-5 80,10 70,30 C90,20 105,40 85,50 C105,60 90,80 70,70 C80,90 60,105 50,85 C40,105 20,90 30,70 C10,80 -5,60 15,50 C-5,40 10,20 30,30 C20,10 40,-5 50,15 Z" fill="currentColor"/>
-                    <circle cx="50" cy="50" r="18" fill="white" />
-                    <circle cx="43" cy="46" r="3" fill="#1c3a63" />
-                    <circle cx="57" cy="46" r="3" fill="#1c3a63" />
-                    <path d="M42,54 Q50,62 58,54" fill="none" stroke-width="3" stroke-linecap="round" />
-                </g>
-            </svg>
+            <img src="img/logo.png" alt="Dipped Shx Logo" class="w-16 h-16 object-contain opacity-50 drop-shadow-md">
         </div>
     </footer>
 
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="fixed inset-y-0 right-0 w-full sm:w-[400px] bg-[#f5ebd9] shadow-2xl z-[250] transform translate-x-full transition-transform duration-300 flex flex-col border-l-4 border-[#1c3a63]">
+        <div class="p-6 border-b-2 border-[#1c3a63]/10 flex justify-between items-center">
+            <h2 class="font-display text-3xl text-[#1c3a63]">YOUR CART</h2>
+            <button id="close-cart" class="text-[#1c3a63] hover:text-[#e891b6] transition-colors">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div id="cart-items" class="flex-grow p-6 overflow-y-auto space-y-4">
+            <!-- Items injected by JS -->
+            <p class="text-center font-bold tracking-widest text-[#1c3a63]/50 mt-10" id="empty-cart-msg">YOUR CART IS EMPTY</p>
+        </div>
+        <div class="p-6 border-t-2 border-[#1c3a63]/10 bg-white">
+            <button id="checkout-btn" class="w-full bg-[#1c3a63] text-white py-4 rounded-xl font-bold tracking-widest hover:bg-[#e891b6] transition-colors flex justify-center items-center gap-2 mb-3">
+                CHECKOUT VIA WHATSAPP
+            </button>
+            <button id="clear-cart-btn" class="w-full text-[#1c3a63]/50 text-xs font-bold tracking-widest hover:text-red-500 transition-colors uppercase py-2">
+                CLEAR CART
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-[#f5ebd9]/95 backdrop-blur-md z-[100] transform translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center">
+        <button id="close-menu" aria-label="Close Menu" class="absolute top-6 right-6 text-[#1c3a63]">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <div class="flex flex-col gap-8 font-display text-3xl tracking-wider text-[#1c3a63] text-center">
+            <a href="index.html#home" class="mobile-link hover:text-[#e891b6] transition-colors">HOME</a>
+            <a href="shop.html" class="mobile-link hover:text-[#e891b6] transition-colors">SHOP ALL</a>
+            <a href="index.html#about" class="mobile-link hover:text-[#e891b6] transition-colors">ABOUT US</a>
+            <a href="index.html#contact" class="mobile-link hover:text-[#e891b6] transition-colors">CONTACT</a>
+        </div>
+    </div>
+
+    <!-- 18+ Modal -->
+    <div id="age-modal" class="fixed inset-0 bg-[#1c3a63]/80 backdrop-blur-md z-[200] flex items-center justify-center transition-opacity duration-500 opacity-0 pointer-events-none">
+        <div class="bg-[#f5ebd9] p-8 md:p-12 rounded-[3rem] text-center max-w-lg mx-6 border-8 border-[#e891b6] shadow-2xl transform scale-95 transition-transform duration-500" id="age-modal-content">
+            <div class="flex justify-center mb-6">
+                <!-- Warning badge -->
+                <img src="img/18+.png" alt="18+ Warning" class="w-24 h-24 object-contain drop-shadow-md">
+            </div>
+            <h2 class="font-display text-4xl md:text-5xl text-[#1c3a63] mb-6">ARE YOU 18 OR OLDER?</h2>
+            <p class="font-bold text-sm tracking-widest text-[#1c3a63] leading-relaxed mb-8">
+                THIS SITE CONTAINS CONTENT AND PRODUCTS STRICTLY FOR ADULTS. YOU MUST BE 18+ TO ENTER.
+            </p>
+
+            <!-- Step 1: Yes / No buttons -->
+            <div id="age-step-1" class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button id="age-yes" class="bg-[#1c3a63] text-[#f5ebd9] px-8 py-3 rounded-2xl font-bold tracking-widest hover:scale-105 transition-transform">
+                    YES, I AM 18+
+                </button>
+                <button id="age-no" class="bg-[#e891b6] text-white px-8 py-3 rounded-2xl font-bold tracking-widest hover:scale-105 transition-transform">
+                    NO, I AM NOT
+                </button>
+            </div>
+
+            <!-- Step 2: DOB form -->
+            <div id="age-step-2" class="hidden flex-col items-center gap-4 justify-center w-full max-w-sm mx-auto">
+                <div class="w-full text-left">
+                    <label for="dob-input" class="block font-bold text-[#1c3a63] text-sm tracking-widest mb-2">PLEASE VERIFY YOUR DATE OF BIRTH:</label>
+                    <input type="date" id="dob-input" class="w-full bg-white border-4 border-[#1c3a63] text-[#1c3a63] px-4 py-3 rounded-2xl font-bold tracking-widest focus:outline-none focus:border-[#e891b6] transition-colors">
+                </div>
+                <button id="verify-age-btn" class="w-full bg-[#1c3a63] text-[#f5ebd9] px-8 py-3 rounded-2xl font-bold tracking-widest hover:scale-105 transition-transform mt-2">
+                    VERIFY
+                </button>
+            </div>
+
+            <div id="age-error" class="hidden mt-4 text-red-600 font-bold tracking-widest text-sm">
+                YOU MUST BE 18+ TO VIEW THIS SITE.
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-[#1c3a63] text-[#f5ebd9] p-4 flex flex-col md:flex-row items-center justify-between z-[90] transition-transform duration-500 translate-y-full border-t-4 border-[#e891b6]">
+        <div class="text-xs md:text-sm font-bold tracking-widest mb-4 md:mb-0 max-w-3xl">
+            WE USE COOKIES TO ENHANCE YOUR EXPERIENCE. BY CONTINUING TO VISIT THIS SITE YOU AGREE TO OUR USE OF COOKIES.
+        </div>
+        <button id="accept-cookies" class="bg-[#e891b6] text-[#1c3a63] px-6 py-2 rounded-xl font-bold hover:bg-white transition-colors tracking-widest text-sm whitespace-nowrap">
+            GOT IT
+        </button>
+    </div>
+
+    <!-- Product Modal -->
+    <div id="product-modal" class="fixed inset-0 bg-[#1c3a63]/80 backdrop-blur-md z-[150] flex items-center justify-center transition-opacity duration-300 opacity-0 pointer-events-none p-6">
+        <div class="bg-[#f5ebd9] p-8 md:p-12 rounded-[2rem] w-full max-w-lg border-4 border-[#e891b6] shadow-2xl relative transform scale-95 transition-transform duration-300" id="product-modal-content">
+            <button id="close-product-modal" class="absolute top-6 right-6 text-[#1c3a63] hover:text-[#e891b6] transition-colors">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <h2 id="modal-title" class="font-display text-4xl text-[#1c3a63] mb-6">MENU</h2>
+            <div id="modal-body" class="space-y-4 text-[#1c3a63] font-bold text-sm tracking-widest leading-relaxed">
+                <!-- Content injected via JS -->
+            </div>
+            <div class="mt-8 pt-6 border-t-2 border-[#1c3a63]/10 text-center">
+                <a href="https://wa.me/27621201496" target="_blank" class="inline-block bg-[#e891b6] text-white px-8 py-3 rounded-2xl font-bold tracking-widest hover:scale-105 transition-transform">
+                    ORDER ON WHATSAPP
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Up Button -->
+    <button id="scroll-up" class="fixed bottom-6 right-6 bg-[#e891b6] text-white p-4 rounded-full shadow-2xl z-[80] transform translate-y-20 opacity-0 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-[#1c3a63]/20">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
     <!-- Minimal JS to handle basic functionality if needed later -->
-    <script>
-        // You can add simple interactions here, such as opening a mobile menu if requested.
-        console.log("Dipped Shxt Landing Page Loaded.");
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
