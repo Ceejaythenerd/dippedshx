@@ -1,0 +1,433 @@
+import React from 'react';
+import { Phone, CheckCircle2 } from 'lucide-react';
+
+const App = () => {
+  return (
+    <div className="min-h-screen bg-[#f5ebd9] text-[#1c3a63] font-mono overflow-x-hidden relative selection:bg-[#e891b6] selection:text-white">
+      {/* Global Styles for Fonts and specific text effects */}
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Chewy&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+        .font-display {
+          font-family: 'Chewy', system-ui;
+          letter-spacing: 0.05em;
+        }
+
+        /* Outline text for dark backgrounds */
+        .text-outline-cream {
+          text-shadow: 
+            -2px -2px 0 #f5ebd9,  
+             2px -2px 0 #f5ebd9,
+            -2px  2px 0 #f5ebd9,
+             2px  2px 0 #f5ebd9,
+             0px 4px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Standard text shadow for depth */
+        .text-depth-blue {
+          text-shadow: 2px 2px 0px rgba(28, 58, 99, 0.2);
+        }
+
+        .text-depth-cream {
+           text-shadow: 2px 2px 0px rgba(245, 235, 217, 0.4);
+        }
+      `}} />
+
+      {/* --- Navigation --- */}
+      <nav className="fixed top-0 w-full z-50 flex items-center justify-between px-6 py-4 md:px-12 bg-[#f5ebd9]/90 backdrop-blur-sm">
+        <div className="flex items-center gap-2">
+          {/* Faux Logo */}
+          <div className="relative w-12 h-12">
+             <FlowerDecoration className="absolute -top-1 -left-1 w-6 h-6 text-[#f5ebd9] fill-[#facc15]" />
+             <div className="font-display text-[#e891b6] text-xl leading-none text-outline-cream transform -rotate-12">DIPPED<br/>SHXT</div>
+          </div>
+        </div>
+        
+        <div className="hidden md:flex gap-8 font-display text-xl tracking-wider text-[#1c3a63]">
+          <a href="#home" className="hover:text-[#e891b6] transition-colors">HOME</a>
+          <a href="#products" className="hover:text-[#e891b6] transition-colors">PRODUCTS</a>
+          <a href="#about" className="hover:text-[#e891b6] transition-colors">ABOUT US</a>
+          <a href="#contact" className="hover:text-[#e891b6] transition-colors">CONTACT</a>
+        </div>
+        
+        {/* Mobile menu placeholder */}
+        <div className="md:hidden font-display text-xl">MENU</div>
+      </nav>
+
+      {/* --- HERO SECTION --- */}
+      <section id="home" className="relative pt-32 pb-20 px-6 md:px-12 min-h-[90vh] flex flex-col md:flex-row items-center">
+        {/* Decorations */}
+        <FlowerDecoration className="absolute top-32 left-10 w-16 h-16 text-[#f5ebd9] fill-[#facc15] transform -rotate-12" />
+        <FlowerDecoration className="absolute bottom-1/4 right-1/4 w-12 h-12 text-[#f5ebd9] fill-[#facc15] transform rotate-45 z-10 hidden md:block" />
+
+        {/* Left Content */}
+        <div className="w-full md:w-1/2 z-10 mb-12 md:mb-0">
+          <h1 className="font-display text-5xl md:text-7xl text-[#1c3a63] mb-8 leading-tight text-depth-cream drop-shadow-md">
+            HEY THERE<br />DIPPER!
+          </h1>
+          
+          <div className="space-y-4 max-w-sm text-sm font-bold tracking-widest leading-relaxed">
+            <p>TEXT TEXT TEXT TEXT TEXT<br/>
+               TEXT TEXT TEXT TEXT TEXT<br/>
+               TEXT TEXT TEXT TEXT TEXT<br/>
+               TEXT TEXT TEXT TEXT TEXT</p>
+          </div>
+        </div>
+
+        {/* Right Content - Giant Cookie & Mascot */}
+        <div className="w-full md:w-1/2 relative h-[50vh] md:h-[70vh] flex justify-center items-center">
+           <div className="relative w-[300px] h-[300px] md:w-[500px] md:h-[500px]">
+              {/* Cookie Image */}
+              <img 
+                src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                alt="Giant Chocolate Chip Cookie" 
+                className="w-full h-full object-cover rounded-full shadow-2xl absolute inset-0 transform rotate-12 hover:rotate-6 transition-transform duration-700"
+              />
+              {/* Mascot Overlay */}
+              <div className="absolute top-[-10%] left-[20%] w-[60%] h-[80%] z-20 drop-shadow-2xl">
+                 <BudMascot pose="cheer" />
+              </div>
+           </div>
+        </div>
+      </section>
+
+      {/* --- WAVE 1: Cream to Pink --- */}
+      <div className="w-full relative -mt-1 z-20 bg-[#f5ebd9]">
+        <svg viewBox="0 0 1440 200" className="w-full h-auto block" preserveAspectRatio="none">
+          <path fill="#e891b6" d="M0,64 C320,200 420,-40 1440,128 L1440,200 L0,200 Z" />
+        </svg>
+      </div>
+
+      {/* --- PRODUCTS SECTION --- */}
+      <section id="products" className="bg-[#e891b6] relative pt-12 pb-32 px-6 md:px-12 z-10">
+        <FlowerDecoration className="absolute top-10 right-10 w-16 h-16 text-[#f5ebd9] fill-[#facc15] transform rotate-12" />
+        
+        <h2 className="font-display text-5xl md:text-7xl text-center text-[#1c3a63] text-outline-cream mb-16">
+          PRODUCTS
+        </h2>
+
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+          {/* Card 1: Sweet */}
+          <div className="flex flex-col items-center group">
+            <h3 className="font-display text-2xl text-[#f5ebd9] mb-6 text-outline-blue tracking-wider">SWEET</h3>
+            <div className="bg-[#1c3a63] p-4 rounded-3xl mb-6 w-full max-w-[280px] aspect-square flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform">
+              <div className="absolute inset-2 border-2 border-[#5ac1b0] rounded-2xl pointer-events-none"></div>
+              <img 
+                src="https://images.unsplash.com/photo-1563805042-7684c8e9e533?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                alt="Ice Cream" 
+                className="w-4/5 h-4/5 object-cover rounded-full shadow-lg"
+              />
+            </div>
+            <p className="font-bold text-sm tracking-widest text-[#1c3a63] leading-relaxed">
+              COOKIES<br/>ICE CREAM<br/>LEMONADE
+            </p>
+          </div>
+
+          {/* Card 2: Savory */}
+          <div className="flex flex-col items-center group">
+            <h3 className="font-display text-2xl text-[#f5ebd9] mb-6 text-outline-blue tracking-wider">SAVORY</h3>
+            <div className="bg-[#1c3a63] p-4 rounded-3xl mb-6 w-full max-w-[280px] aspect-square flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform">
+              <div className="absolute inset-2 border-2 border-[#5ac1b0] rounded-2xl pointer-events-none z-10"></div>
+              <div className="flex gap-4">
+                 <img 
+                  src="https://images.unsplash.com/photo-1607532941433-304659e8198a?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
+                  alt="Sauce Bottle 1" 
+                  className="w-16 h-32 object-cover rounded-md transform -rotate-6 shadow-md"
+                 />
+                 <img 
+                  src="https://images.unsplash.com/photo-1607532941433-304659e8198a?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
+                  alt="Sauce Bottle 2" 
+                  className="w-16 h-32 object-cover rounded-md transform rotate-6 shadow-md mt-4"
+                 />
+              </div>
+            </div>
+            <p className="font-bold text-sm tracking-widest text-[#1c3a63] leading-relaxed">
+              BILTONG<br/>HOTSAUCE<br/>CHIP DIP
+            </p>
+          </div>
+
+          {/* Card 3: Prerolls */}
+          <div className="flex flex-col items-center group">
+            <h3 className="font-display text-2xl text-[#f5ebd9] mb-6 text-outline-blue tracking-wider">PREROLLS &<br/>MERCH</h3>
+            <div className="bg-[#1c3a63] p-4 rounded-3xl mb-6 w-full max-w-[280px] aspect-square flex items-center justify-center relative group-hover:scale-105 transition-transform">
+              <div className="absolute inset-2 border-2 border-[#5ac1b0] rounded-2xl pointer-events-none"></div>
+              {/* Empty placeholder as in image */}
+            </div>
+            <p className="font-bold text-sm tracking-widest text-[#1c3a63] leading-relaxed">
+              BILTONG<br/>HOTSAUCE<br/>CHIP DIP
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* --- WAVE 2: Pink to Cream --- */}
+      <div className="w-full relative -mt-1 bg-[#e891b6]">
+         {/* Decorative half cookie sticking out of the wave */}
+         <img 
+           src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+           alt="Cookie bite" 
+           className="absolute right-[-10%] top-1/2 w-64 h-64 object-cover rounded-full shadow-xl z-20 hidden md:block"
+         />
+        <svg viewBox="0 0 1440 200" className="w-full h-auto block" preserveAspectRatio="none">
+          <path fill="#f5ebd9" d="M0,128 C480,300 960,-60 1440,64 L1440,200 L0,200 Z" />
+        </svg>
+      </div>
+
+      {/* --- ABOUT US SECTION --- */}
+      <section id="about" className="bg-[#f5ebd9] relative pt-20 pb-32 px-6 md:px-12 overflow-hidden">
+         {/* Crumb decorations */}
+         <div className="absolute top-20 left-1/4 w-3 h-3 bg-[#8b5a2b] rounded-full opacity-60"></div>
+         <div className="absolute top-40 right-1/3 w-2 h-2 bg-[#8b5a2b] rounded-full opacity-60"></div>
+         <div className="absolute bottom-20 right-10 w-4 h-4 bg-[#8b5a2b] rounded-full opacity-60"></div>
+         <FlowerDecoration className="absolute right-4 top-1/4 w-12 h-12 text-[#f5ebd9] fill-[#facc15] transform rotate-90" />
+
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+          {/* Left: Walking Mascot */}
+          <div className="w-full md:w-1/2 flex justify-center relative">
+            <div className="w-[300px] h-[400px] md:w-[450px] md:h-[500px]">
+               <BudMascot pose="walk" />
+            </div>
+          </div>
+
+          {/* Right: Text Content */}
+          <div className="w-full md:w-1/2">
+            <h2 className="font-display text-5xl md:text-7xl text-[#1c3a63] mb-12 text-depth-cream">
+              ABOUT US
+            </h2>
+            
+            <div className="space-y-8 text-sm font-bold tracking-widest text-[#1c3a63] leading-loose max-w-md">
+              <p>
+                TEXT TEXT TEXT TEXT TEXT<br/>
+                TEXT TEXT TEXT TEXT TEXT<br/>
+                TEXT TEXT TEXT TEXT TEXT<br/>
+                TEXT TEXT
+              </p>
+              <p>
+                TEXT TEXT TEXT TEXT TEXT<br/>
+                TEXT TEXT TEXT TEXT TEXT<br/>
+                TEXT TEXT TEXT TEXT TEXT<br/>
+                TEXT TEXT TEXT TEXT TEXT<br/>
+                TEXT TEXT
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- WAVE 3: Cream to Dark Blue --- */}
+      <div className="w-full relative -mt-1 z-20 bg-[#f5ebd9]">
+        <svg viewBox="0 0 1440 250" className="w-full h-auto block drop-shadow-xl" preserveAspectRatio="none">
+          <path fill="#1c3a63" d="M0,64 C400,280 800,-40 1440,160 L1440,250 L0,250 Z" />
+        </svg>
+      </div>
+
+      {/* --- CONTACT SECTION --- */}
+      <section id="contact" className="bg-[#1c3a63] relative pt-12 pb-40 px-6 md:px-12 text-center text-[#f5ebd9]">
+        
+        {/* Left Decorative Cookie */}
+        <img 
+          src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+          alt="Cookie Half" 
+          className="absolute left-[-50px] top-[20%] w-48 h-48 md:w-64 md:h-64 object-cover rounded-full opacity-90 transform -rotate-45"
+        />
+
+        <div className="max-w-4xl mx-auto relative z-10">
+          <h2 className="font-display text-5xl md:text-7xl text-[#e891b6] text-outline-cream mb-8">
+            CONTACT
+          </h2>
+
+          <p className="font-bold text-lg md:text-xl tracking-widest mb-16 leading-relaxed">
+            GOT SOMETHING ON YOUR MIND?<br/>
+            LET US KNOW.
+          </p>
+
+          <p className="font-bold text-sm tracking-widest mb-6">
+            WHATSAPP FOR MORE INFORMATION OR ORDERS.
+          </p>
+          
+          <div className="flex items-center justify-center gap-6 mb-16">
+            <div className="bg-[#f5ebd9] text-[#1c3a63] p-3 rounded-2xl shadow-lg hover:scale-110 transition-transform cursor-pointer">
+              <Phone size={32} strokeWidth={2.5} />
+            </div>
+            <span className="font-bold text-xl tracking-widest">062 1201 496</span>
+          </div>
+
+          <p className="font-bold text-sm tracking-widest mb-6">
+            FOLLOW US ON SOCIALS
+          </p>
+
+          <div className="flex items-center justify-center gap-6">
+             <div className="bg-[#f5ebd9] text-[#1c3a63] p-3 rounded-2xl shadow-lg hover:scale-110 transition-transform cursor-pointer flex items-center justify-center w-[56px] h-[56px]">
+               {/* Custom TikTok SVG icon */}
+               <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.63 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z"/>
+               </svg>
+            </div>
+            <span className="font-bold text-xl tracking-widest">@DIPPEDSHXTREATS</span>
+          </div>
+        </div>
+
+        {/* Right Decorative Cow - Using a placeholder pattern to simulate it since clean transparent cow heads are rare */}
+        <div className="absolute right-0 bottom-[-50px] w-64 h-64 md:w-96 md:h-96 z-30 pointer-events-none">
+             <img 
+              src="https://images.unsplash.com/photo-1546445317-29f4545e9d53?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+              alt="Cow Face" 
+              className="w-full h-full object-cover rounded-tl-[100px] rounded-bl-[100px] border-8 border-[#f5ebd9] shadow-2xl transform rotate-12 translate-x-10"
+              style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 80%)' }}
+            />
+        </div>
+      </section>
+
+      {/* --- WAVE 4: Dark Blue to Cream (Footer Transition) --- */}
+      <div className="w-full relative -mt-1 z-20 bg-[#1c3a63]">
+        <svg viewBox="0 0 1440 150" className="w-full h-auto block" preserveAspectRatio="none">
+          <path fill="#f5ebd9" d="M0,100 C500,200 900,-50 1440,100 L1440,150 L0,150 Z" />
+        </svg>
+      </div>
+
+      {/* --- FOOTER --- */}
+      <footer className="bg-[#f5ebd9] py-8 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between relative z-10 border-t-4 border-[#e891b6]/20">
+         <FlowerDecoration className="absolute left-4 bottom-4 w-12 h-12 text-[#f5ebd9] fill-[#facc15] transform -rotate-45" />
+        
+        {/* 18+ Badge */}
+        <div className="flex-shrink-0 mb-6 md:mb-0 relative z-10">
+           <div className="w-16 h-16 rounded-full border-4 border-red-600 flex items-center justify-center bg-white shadow-md">
+              <span className="font-black text-2xl text-red-600">18+</span>
+           </div>
+        </div>
+
+        {/* Disclaimer Text */}
+        <div className="flex-grow text-center max-w-3xl px-4">
+          <ul className="text-[0.65rem] md:text-xs font-bold tracking-widest text-[#1c3a63] leading-relaxed list-none space-y-1">
+            <li>* DO NOT CONSUME IF PREGNANT OR BREASTFEEDING, OR EXPERIENCE PSYCHOSIS.</li>
+            <li>* MAY TAKE UP TO 30 MINUTES OR MORE TO TAKE AFFECT.</li>
+            <li>* DO NOT CONSUME IF YOU WILL BE DRIVING OR OPERATING HEAVY MACHINERY.</li>
+            <li>* NOT FOR PERSONS UNDER THE AGE OF 18.</li>
+            <li>* CONSUME WITH CAUTION. DO NOT EXCEED RECOMMENDED DOSAGE.</li>
+            <li>* DO NOT MIX WITH ALCOHOL OR OTHER SUBSTANCES.</li>
+            <li>* FIRST TIMERS SHOULD CONSUME HALF AS A STARTER.</li>
+          </ul>
+        </div>
+
+        {/* Footer Logo area */}
+        <div className="flex-shrink-0 mt-6 md:mt-0 relative">
+          <div className="font-display text-[#e891b6] text-xl text-outline-cream opacity-50 text-right">
+            DIPPED<br/>SHXT
+          </div>
+           <FlowerDecoration className="absolute -top-4 -right-4 w-8 h-8 text-[#f5ebd9] fill-[#facc15] opacity-50" />
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+// --- Custom SVG Components to match the illustrative style ---
+
+// The little daisy-like flower decorations
+const FlowerDecoration = ({ className }) => (
+  <svg viewBox="0 0 100 100" className={className} xmlns="http://www.w3.org/2000/svg">
+    <g stroke="#1c3a63" strokeWidth="4" strokeLinejoin="round">
+      {/* Petals */}
+      <path d="M50,15 C60,-5 80,10 70,30 C90,20 105,40 85,50 C105,60 90,80 70,70 C80,90 60,105 50,85 C40,105 20,90 30,70 C10,80 -5,60 15,50 C-5,40 10,20 30,30 C20,10 40,-5 50,15 Z" fill="currentColor"/>
+      {/* Center Face */}
+      <circle cx="50" cy="50" r="18" fill="white" />
+      {/* Eyes */}
+      <circle cx="43" cy="46" r="3" fill="#1c3a63" />
+      <circle cx="57" cy="46" r="3" fill="#1c3a63" />
+      {/* Smile */}
+      <path d="M42,54 Q50,62 58,54" fill="none" strokeWidth="3" strokeLinecap="round" />
+    </g>
+  </svg>
+);
+
+// A constructed SVG to act as a stand-in for the green "Bud" mascot
+const BudMascot = ({ pose }) => {
+  return (
+    <svg viewBox="0 0 200 300" className="w-full h-full drop-shadow-2xl" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="#1c3a63" strokeWidth="4" strokeLinejoin="round" strokeLinecap="round">
+        
+        {/* Left Arm/Leg depending on pose */}
+        {pose === 'cheer' ? (
+           <>
+            <path d="M60,100 Q40,60 50,20" fill="none" strokeWidth="6" />
+            {/* Hand */}
+            <path d="M40,20 C40,10 60,10 60,20 C60,30 40,30 40,20" fill="white" />
+           </>
+        ) : (
+           <>
+            <path d="M70,200 Q40,250 50,280" fill="none" strokeWidth="6" />
+            {/* Shoe */}
+            <path d="M30,280 Q50,270 70,280 Q70,300 40,295 Z" fill="#ff99cc" />
+            {/* Left Arm Walk */}
+            <path d="M50,140 Q10,150 20,180" fill="none" strokeWidth="6" />
+            <circle cx="20" cy="180" r="10" fill="white" />
+           </>
+        )}
+
+        {/* Right Arm/Leg */}
+        {pose === 'cheer' ? (
+           <>
+            <path d="M140,100 Q160,60 150,20" fill="none" strokeWidth="6" />
+            {/* Hand */}
+            <path d="M140,20 C140,10 160,10 160,20 C160,30 140,30 140,20" fill="white" />
+           </>
+        ) : (
+           <>
+            <path d="M130,200 Q150,240 140,280" fill="none" strokeWidth="6" />
+             {/* Shoe */}
+            <path d="M120,280 Q140,270 160,280 Q150,300 120,295 Z" fill="#ff99cc" />
+             {/* Right Arm Walk */}
+            <path d="M150,120 Q180,100 190,70" fill="none" strokeWidth="6" />
+             {/* Open Hand */}
+             <path d="M180,70 Q190,50 200,60 Q195,75 190,80 Z" fill="white"/>
+           </>
+        )}
+
+        {/* Legs for Cheer pose */}
+        {pose === 'cheer' && (
+          <>
+            <path d="M80,220 V270" fill="none" strokeWidth="6" />
+            <path d="M65,270 Q80,260 95,270 Q85,290 65,285 Z" fill="#ff99cc" />
+            
+            <path d="M120,220 V270" fill="none" strokeWidth="6" />
+            <path d="M105,270 Q120,260 135,270 Q125,290 105,285 Z" fill="#ff99cc" />
+          </>
+        )}
+
+        {/* Main Body (Bumpy Cloud/Bud Shape) */}
+        <path d="
+          M100,50 
+          C130,40 150,70 145,90 
+          C170,100 170,130 155,145 
+          C175,170 150,210 120,200 
+          C110,220 80,220 70,195 
+          C40,200 30,160 45,140 
+          C25,120 40,80 60,85
+          C60,55 80,45 100,50 Z" 
+          fill="#5a9a6c" 
+        />
+        
+        {/* Face */}
+        <g>
+          {/* Left Eye */}
+          <ellipse cx="85" cy="120" rx="12" ry="18" fill="white" />
+          <circle cx="90" cy="120" r="5" fill="#1c3a63" />
+          {/* Right Eye */}
+          <ellipse cx="120" cy="120" rx="12" ry="18" fill="white" />
+          <circle cx="115" cy="120" r="5" fill="#1c3a63" />
+          
+          {/* Eyebrows */}
+          <path d="M75,100 Q85,90 95,100" fill="none" strokeWidth="3" />
+          <path d="M110,100 Q120,95 130,105" fill="none" strokeWidth="3" />
+
+          {/* Mouth */}
+          <path d="M85,145 Q100,165 115,145 Z" fill="#1c3a63" />
+          {/* Tongue */}
+          <path d="M95,150 Q100,160 105,150 Z" fill="#ff99cc" stroke="none" />
+        </g>
+      </g>
+    </svg>
+  );
+};
+
+export default App;
