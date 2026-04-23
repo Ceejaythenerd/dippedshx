@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Dipped Shx</title>
+    <meta name="description" content="Finalize your order for premium handcrafted infused treats." />
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Centralized Product Data -->
+    <script src="products/product-data.js"></script>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body class="min-h-screen bg-[#f5ebd9] text-[#1c3a63] font-mono overflow-x-hidden relative selection:bg-[#e891b6] selection:text-white">
+
+    <!-- --- Navigation --- -->
+    <nav class="fixed top-0 w-full z-50 flex items-center justify-between px-6 py-4 md:px-12 bg-[#f5ebd9]/90 backdrop-blur-sm">
+        <div class="flex items-center gap-2">
+            <!-- Brand Logo -->
+            <div class="relative w-16 h-16 md:w-20 md:h-20 flex-shrink-0">
+                <img src="img/logo.png" alt="Dipped Shx Logo" class="w-full h-full object-contain drop-shadow-md hover:scale-105 transition-transform cursor-pointer" onclick="window.location.href='index.html'">
+            </div>
+        </div>
+        
+        <div class="hidden md:flex gap-8 font-display text-xl tracking-wider text-[#1c3a63]">
+            <a href="index.html#home" class="hover:text-[#e891b6] transition-colors">HOME</a>
+            <a href="shop.html" class="hover:text-[#e891b6] transition-colors">SHOP</a>
+            <a href="index.html#about" class="hover:text-[#e891b6] transition-colors">ABOUT US</a>
+            <a href="index.html#contact" class="hover:text-[#e891b6] transition-colors">CONTACT</a>
+        </div>
+        
+        <div class="flex items-center gap-6">
+            <!-- Cart Button -->
+            <button id="open-cart" aria-label="Open Shopping Cart" class="relative text-[#1c3a63] hover:text-[#e891b6] transition-colors focus:outline-none hidden">
+                <!-- Hidden on checkout page but kept for script consistency if needed -->
+            </button>
+            <a href="shop.html" class="font-display text-xl cursor-pointer hover:text-[#e891b6] transition-colors">BACK TO SHOP</a>
+        </div>
+    </nav>
+
+    <!-- --- CHECKOUT MAIN --- -->
+    <main class="pt-32 pb-24 px-6 md:px-12 min-h-screen relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row gap-12">
+        
+        <!-- Left Column: Delivery Details -->
+        <div class="flex-grow space-y-10">
+            <h1 class="font-display text-5xl md:text-6xl text-[#1c3a63] drop-shadow-sm">CHECKOUT</h1>
+            
+            <form id="checkout-form" class="space-y-6 bg-white p-8 rounded-3xl shadow-xl border-4 border-transparent hover:border-[#e891b6]/30 transition-colors">
+                <h2 class="font-display text-3xl text-[#1c3a63] mb-4 border-b-2 border-[#1c3a63]/10 pb-2">DELIVERY DETAILS</h2>
+                
+                <div>
+                    <label class="block font-bold text-xs tracking-widest text-[#1c3a63] mb-2 uppercase">Full Name</label>
+                    <input type="text" id="checkout-name" required class="w-full bg-[#f5ebd9]/50 border-2 border-[#1c3a63]/20 text-[#1c3a63] px-4 py-3 rounded-xl font-bold focus:outline-none focus:border-[#e891b6] transition-colors">
+                </div>
+                
+                <div>
+                    <label class="block font-bold text-xs tracking-widest text-[#1c3a63] mb-2 uppercase">WhatsApp Number</label>
+                    <input type="tel" id="checkout-phone" required class="w-full bg-[#f5ebd9]/50 border-2 border-[#1c3a63]/20 text-[#1c3a63] px-4 py-3 rounded-xl font-bold focus:outline-none focus:border-[#e891b6] transition-colors">
+                </div>
+
+                <div>
+                    <label class="block font-bold text-xs tracking-widest text-[#1c3a63] mb-2 uppercase">Delivery Method</label>
+                    <div class="flex gap-4">
+                        <label class="flex-1 cursor-pointer">
+                            <input type="radio" name="delivery-method" value="pickup" class="peer sr-only" checked>
+                            <div class="bg-[#f5ebd9]/50 border-2 border-[#1c3a63]/20 rounded-xl p-4 text-center peer-checked:bg-[#e891b6]/10 peer-checked:border-[#e891b6] transition-all font-bold text-[#1c3a63]">
+                                PICKUP (Free)
+                            </div>
+                        </label>
+                        <label class="flex-1 cursor-pointer">
+                            <input type="radio" name="delivery-method" value="delivery" class="peer sr-only">
+                            <div class="bg-[#f5ebd9]/50 border-2 border-[#1c3a63]/20 rounded-xl p-4 text-center peer-checked:bg-[#e891b6]/10 peer-checked:border-[#e891b6] transition-all font-bold text-[#1c3a63]">
+                                DELIVERY (+R50)
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="address-container" class="hidden transition-all duration-300">
+                    <label class="block font-bold text-xs tracking-widest text-[#1c3a63] mb-2 uppercase">Delivery Address</label>
+                    <textarea id="checkout-address" rows="3" class="w-full bg-[#f5ebd9]/50 border-2 border-[#1c3a63]/20 text-[#1c3a63] px-4 py-3 rounded-xl font-bold focus:outline-none focus:border-[#e891b6] transition-colors"></textarea>
+                </div>
+            </form>
+
+            <!-- You Might Also Like Section -->
+            <div id="recommendation-container" class="bg-white p-8 rounded-3xl shadow-xl border-4 border-[#5ac1b0]/30 hidden">
+                <h2 class="font-display text-2xl text-[#1c3a63] mb-4">YOU MIGHT ALSO LIKE...</h2>
+                <div id="recommendation-content" class="flex items-center gap-6">
+                    <!-- Dynamic Recommendation -->
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Right Column: Order Summary -->
+        <div class="w-full lg:w-[400px] flex-shrink-0">
+            <div class="bg-[#1c3a63] text-white p-8 rounded-3xl shadow-2xl sticky top-32">
+                <h2 class="font-display text-3xl mb-6">ORDER SUMMARY</h2>
+                
+                <div id="checkout-items" class="space-y-4 mb-6 max-h-64 overflow-y-auto pr-2 custom-scrollbar">
+                    <!-- Dynamic items -->
+                </div>
+                
+                <div class="border-t-2 border-white/20 pt-4 space-y-2 font-bold tracking-widest text-sm">
+                    <div class="flex justify-between text-white/70">
+                        <span>SUBTOTAL</span>
+                        <span id="checkout-subtotal">R0.00</span>
+                    </div>
+                    <div class="flex justify-between text-white/70">
+                        <span>DELIVERY</span>
+                        <span id="checkout-delivery-fee">R0.00</span>
+                    </div>
+                    <div class="flex justify-between text-xl text-[#e891b6] pt-2">
+                        <span>TOTAL</span>
+                        <span id="checkout-total">R0.00</span>
+                    </div>
+                </div>
+
+                <button id="finalize-order-btn" class="w-full bg-[#e891b6] text-white py-5 rounded-xl font-bold tracking-widest text-lg hover:scale-105 transition-transform mt-8 flex justify-center items-center gap-2 shadow-xl">
+                    FINALIZE ON WHATSAPP
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- --- FOOTER --- -->
+    <footer class="bg-[#f5ebd9] py-8 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between relative z-10 border-t-4 border-[#e891b6]/20">
+        <img src="img/yellow-flower.png" class="absolute left-10 bottom-4 w-24 h-24 object-contain transform -rotate-12 opacity-50 drop-shadow-md" loading="lazy" alt="">
+        <div class="flex-shrink-0 mb-6 md:mb-0 relative z-10 w-20 h-20">
+            <img src="img/18+.png" alt="18+ Only" loading="lazy" class="w-full h-full object-contain drop-shadow-md">
+        </div>
+        <div class="flex-grow text-center max-w-3xl px-4">
+            <ul class="text-xs md:text-sm font-bold tracking-widest text-[#1c3a63] leading-relaxed list-none space-y-1">
+                <li>* DO NOT CONSUME IF PREGNANT OR BREASTFEEDING, OR EXPERIENCE PSYCHOSIS.</li>
+                <li>* MAY TAKE UP TO 30 MINUTES OR MORE TO TAKE AFFECT.</li>
+                <li>* DO NOT CONSUME IF YOU WILL BE DRIVING OR OPERATING HEAVY MACHINERY.</li>
+                <li>* NOT FOR PERSONS UNDER THE AGE OF 18.</li>
+                <li>* CONSUME WITH CAUTION. DO NOT EXCEED RECOMMENDED DOSAGE.</li>
+                <li>* DO NOT MIX WITH ALCOHOL OR OTHER SUBSTANCES.</li>
+                <li>* FIRST TIMERS SHOULD CONSUME HALF AS A STARTER.</li>
+            </ul>
+        </div>
+        <div class="flex-shrink-0 mt-6 md:mt-0 relative">
+            <img src="img/logo.png" alt="Dipped Shx Logo" class="w-16 h-16 object-contain opacity-50 drop-shadow-md">
+        </div>
+    </footer>
+
+    <!-- Minimal JS to handle basic functionality -->
+    <script src="script.js"></script>
+</body>
+</html>

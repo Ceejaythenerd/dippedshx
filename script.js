@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const cookieBanner = document.getElementById('cookie-banner');
 
     // 18+ Modal Logic
-    if (!localStorage.getItem('ageVerified')) {
+    if (!localStorage.getItem('ageVerified') && ageModal) {
         ageModal.classList.remove('opacity-0', 'pointer-events-none');
         setTimeout(() => ageContent.classList.remove('scale-95'), 10);
         document.body.style.overflow = 'hidden';
@@ -69,16 +69,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Cookie Consent Logic
-    if (!localStorage.getItem('cookiesAccepted')) {
+    if (!localStorage.getItem('cookiesAccepted') && cookieBanner) {
         setTimeout(() => {
             cookieBanner.classList.remove('translate-y-full');
         }, 1500);
     }
 
-    document.getElementById('accept-cookies').addEventListener('click', () => {
-        localStorage.setItem('cookiesAccepted', 'true');
-        cookieBanner.classList.add('translate-y-full');
-    });
+    const acceptCookiesBtn = document.getElementById('accept-cookies');
+    if (acceptCookiesBtn && cookieBanner) {
+        acceptCookiesBtn.addEventListener('click', () => {
+            localStorage.setItem('cookiesAccepted', 'true');
+            cookieBanner.classList.add('translate-y-full');
+        });
+    }
 
     // Mobile Menu Logic
     const mobileMenu = document.getElementById('mobile-menu');
@@ -109,62 +112,38 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalBody = document.getElementById('modal-body');
     
     if (productModal) {
-        const productData = {
-            cookies: {
-                title: "COOKIES & BROWNIES",
-                body: `
-                    <div class="space-y-4 mb-4">
-                        <div class="flex justify-between items-center bg-white p-3 rounded-xl shadow-sm border-2 border-[#1c3a63]/10">
-                            <span class="font-bold text-xs tracking-widest leading-snug w-1/2">SIGNATURE COOKIES</span>
-                            <button class="add-to-cart-btn bg-[#1c3a63] text-white px-4 py-2 rounded-xl text-xs hover:bg-[#e891b6] font-bold tracking-widest transition-colors" data-name="Signature Cookies">ADD TO CART</button>
-                        </div>
-                        <div class="flex justify-between items-center bg-white p-3 rounded-xl shadow-sm border-2 border-[#1c3a63]/10">
-                            <span class="font-bold text-xs tracking-widest leading-snug w-1/2">DOUBLE CHOC BROWNIES</span>
-                            <button class="add-to-cart-btn bg-[#1c3a63] text-white px-4 py-2 rounded-xl text-xs hover:bg-[#e891b6] font-bold tracking-widest transition-colors" data-name="Double Choc Brownies">ADD TO CART</button>
-                        </div>
-                    </div>`
-            },
-            icecreams: {
-                title: "ICE-CREAMS",
-                body: `
-                    <div class="space-y-4 mb-4">
-                        <div class="flex justify-between items-center bg-white p-3 rounded-xl shadow-sm border-2 border-[#1c3a63]/10">
-                            <span class="font-bold text-xs tracking-widest leading-snug w-1/2">ICE-CREAM SANDWICHES</span>
-                            <button class="add-to-cart-btn bg-[#1c3a63] text-white px-4 py-2 rounded-xl text-xs hover:bg-[#5ac1b0] font-bold tracking-widest transition-colors" data-name="Ice-Cream Sandwiches">ADD TO CART</button>
-                        </div>
-                        <div class="flex justify-between items-center bg-white p-3 rounded-xl shadow-sm border-2 border-[#1c3a63]/10">
-                            <span class="font-bold text-xs tracking-widest leading-snug w-1/2">ICE-CREAM TUBS</span>
-                            <button class="add-to-cart-btn bg-[#1c3a63] text-white px-4 py-2 rounded-xl text-xs hover:bg-[#5ac1b0] font-bold tracking-widest transition-colors" data-name="Ice-Cream Tubs">ADD TO CART</button>
-                        </div>
-                        <div class="flex justify-between items-center bg-white p-3 rounded-xl shadow-sm border-2 border-[#1c3a63]/10">
-                            <span class="font-bold text-xs tracking-widest leading-snug w-1/2">ICE-CREAM POPSICLES</span>
-                            <button class="add-to-cart-btn bg-[#1c3a63] text-white px-4 py-2 rounded-xl text-xs hover:bg-[#5ac1b0] font-bold tracking-widest transition-colors" data-name="Ice-Cream Popsicles">ADD TO CART</button>
-                        </div>
-                    </div>`
-            },
-            sauces: {
-                title: "SAUCES",
-                body: `
-                    <div class="space-y-4 mb-4">
-                        <div class="flex justify-between items-center bg-white p-3 rounded-xl shadow-sm border-2 border-[#1c3a63]/10">
-                            <span class="font-bold text-xs tracking-widest leading-snug w-1/2">HOT SAUCE</span>
-                            <button class="add-to-cart-btn bg-[#1c3a63] text-white px-4 py-2 rounded-xl text-xs hover:bg-[#facc15] hover:text-[#1c3a63] font-bold tracking-widest transition-colors" data-name="Hot Sauce">ADD TO CART</button>
-                        </div>
-                        <div class="flex justify-between items-center bg-white p-3 rounded-xl shadow-sm border-2 border-[#1c3a63]/10">
-                            <span class="font-bold text-xs tracking-widest leading-snug w-1/2">CARAMEL & CHOCOLATE</span>
-                            <button class="add-to-cart-btn bg-[#1c3a63] text-white px-4 py-2 rounded-xl text-xs hover:bg-[#facc15] hover:text-[#1c3a63] font-bold tracking-widest transition-colors" data-name="Caramel & Chocolate Sauce">ADD TO CART</button>
-                        </div>
-                    </div>`
-            }
+        const modalCategories = {
+            cookies: { title: "COOKIES & BROWNIES" },
+            icecreams: { title: "ICE-CREAMS" },
+            sauces: { title: "SAUCES" }
         };
 
         const productCards = document.querySelectorAll('.product-card');
         productCards.forEach(card => {
             card.addEventListener('click', () => {
                 const type = card.dataset.product;
-                if(productData[type]) {
-                    modalTitle.textContent = productData[type].title;
-                    modalBody.innerHTML = productData[type].body;
+                if(modalCategories[type]) {
+                    modalTitle.textContent = modalCategories[type].title;
+                    
+                    const categoryProducts = typeof productData !== 'undefined' ? productData.filter(p => p.category === type) : [];
+                    
+                    let bodyHtml = '<div class="space-y-4 mb-4">';
+                    categoryProducts.forEach(p => {
+                        bodyHtml += `
+                            <div class="flex flex-col gap-2 bg-white p-3 rounded-xl shadow-sm border-2 border-[#1c3a63]/10">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-xs tracking-widest leading-snug w-1/3 uppercase">${p.name}</span>
+                                    <div class="flex gap-2">
+                                        <a href="product.html?id=${p.id}" class="text-[#1c3a63] border-2 border-[#1c3a63] px-3 py-2 rounded-xl text-[10px] hover:bg-[#1c3a63] hover:text-white font-bold tracking-widest transition-colors flex items-center justify-center whitespace-nowrap">DETAILS</a>
+                                        <button class="add-to-cart-btn bg-[#1c3a63] text-white px-3 py-2 rounded-xl text-[10px] font-bold tracking-widest transition-colors flex items-center justify-center whitespace-nowrap hover:scale-105" data-name="${p.name}" style="--hover-bg: ${p.themeColor}" onmouseover="this.style.backgroundColor='${p.themeColor}'" onmouseout="this.style.backgroundColor='#1c3a63'">ADD</button>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    bodyHtml += '</div>';
+                    
+                    modalBody.innerHTML = bodyHtml;
                     
                     productModal.classList.remove('opacity-0', 'pointer-events-none');
                     setTimeout(() => productContent.classList.remove('scale-95'), 10);
@@ -346,6 +325,19 @@ document.addEventListener("DOMContentLoaded", () => {
                     icon.style.transform = 'scale(1)';
                 }, 300);
             }
+
+            // Open Cart Sidebar
+            const cartSidebar = document.getElementById('cart-sidebar');
+            if (cartSidebar) {
+                cartSidebar.classList.remove('translate-x-full');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        
+        // Handle product card click logic cleanly without inline onclick
+        const card = e.target.closest('.shop-card');
+        if (card && !btn) {
+            window.location.href = `product.html?id=${card.dataset.id}`;
         }
     });
 
@@ -369,14 +361,37 @@ document.addEventListener("DOMContentLoaded", () => {
     // Checkout Logic
     if (checkoutBtn) {
         checkoutBtn.addEventListener('click', () => {
-            let message = "Hi Dipped Shx! I would like to order:%0A%0A";
-            for (const [item, qty] of Object.entries(cart)) {
-                message += `- ${qty}x ${item}%0A`;
-            }
-            message += "%0APlease let me know the total and delivery details.";
-            
-            window.open(`https://wa.me/27621201496?text=${message}`, '_blank');
+            // Check if cart is empty
+            if (Object.keys(cart).length === 0) return;
+            window.location.href = 'checkout.html';
         });
+    }
+
+    // --- Shop Rendering Logic ---
+    if (window.location.pathname.includes('shop.html')) {
+        const cookiesGrid = document.getElementById('grid-cookies');
+        const icecreamsGrid = document.getElementById('grid-icecreams');
+        const saucesGrid = document.getElementById('grid-sauces');
+        
+        if (typeof productData !== 'undefined') {
+            productData.forEach(product => {
+                const cardHtml = `
+                    <div class="bg-white rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all border-4 border-transparent hover:border-[#1c3a63] group flex flex-col h-full cursor-pointer shop-card" data-id="${product.id}">
+                        <div style="background-color: ${product.themeColor}" class="rounded-2xl aspect-square mb-6 flex items-center justify-center overflow-hidden">
+                            <img src="${product.imageUrl}" alt="${product.name}" loading="lazy" class="w-2/3 h-2/3 object-cover rounded-full shadow-md group-hover:scale-110 transition-transform">
+                        </div>
+                        <h3 class="font-black text-xl text-[#1c3a63] mb-2 tracking-wider uppercase">${product.name}</h3>
+                        <p class="text-base text-[#1c3a63]/70 font-bold tracking-widest mb-4 flex-grow">${product.shortDescription}</p>
+                        <button class="add-to-cart-btn block w-full text-center bg-[#1c3a63] text-white py-3 rounded-xl font-bold tracking-widest hover:-translate-y-1 transition-all mt-auto" data-name="${product.name}" onmouseover="this.style.backgroundColor='${product.themeColor}'" onmouseout="this.style.backgroundColor='#1c3a63'">
+                            ADD TO CART
+                        </button>
+                    </div>
+                `;
+                if (product.category === 'cookies' && cookiesGrid) cookiesGrid.innerHTML += cardHtml;
+                else if (product.category === 'icecreams' && icecreamsGrid) icecreamsGrid.innerHTML += cardHtml;
+                else if (product.category === 'sauces' && saucesGrid) saucesGrid.innerHTML += cardHtml;
+            });
+        }
     }
 
     // Initialize UI on load
@@ -415,6 +430,202 @@ document.addEventListener("DOMContentLoaded", () => {
                     section.style.display = 'none';
                 }
             });
+        });
+    }
+
+    // --- Product Detail Rendering ---
+    if (window.location.pathname.includes('product.html')) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+        const product = typeof productData !== 'undefined' ? productData.find(p => p.id === productId) : null;
+        
+        const container = document.getElementById('product-detail-container');
+        
+        if (product && container) {
+            let detailsHtml = product.details.map(d => `<li class="mb-2 flex items-center gap-2"><svg style="color: ${product.themeColor}" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> ${d}</li>`).join('');
+            
+            container.innerHTML = `
+                <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div style="background-color: ${product.themeColor}" class="rounded-[3rem] p-8 md:p-12 aspect-square flex items-center justify-center shadow-2xl relative overflow-hidden group">
+                        <div class="absolute inset-4 border-4 border-white/20 rounded-[2rem] pointer-events-none"></div>
+                        <img src="${product.imageUrl}" alt="${product.name}" class="w-3/4 h-3/4 object-cover rounded-2xl shadow-xl transform group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="space-y-6">
+                        <a href="shop.html" class="inline-block text-[#1c3a63]/60 font-bold tracking-widest hover:text-[#e891b6] transition-colors mb-2 uppercase text-sm">&larr; BACK TO SHOP</a>
+                        <h1 class="font-display text-5xl md:text-7xl text-[#1c3a63] leading-tight">${product.name}</h1>
+                        <p style="color: ${product.themeColor}" class="font-bold text-2xl tracking-widest">R${product.price.toFixed(2)}</p>
+                        <p class="text-lg text-[#1c3a63]/80 font-bold tracking-widest leading-relaxed">${product.longDescription}</p>
+                        
+                        <div class="pt-6 border-t-4 border-[#1c3a63]/10">
+                            <h3 class="font-black text-xl text-[#1c3a63] mb-4 tracking-wider uppercase">What's Inside:</h3>
+                            <ul class="text-[#1c3a63]/70 font-bold tracking-widest">
+                                ${detailsHtml}
+                            </ul>
+                        </div>
+                        
+                        <div class="pt-8 flex flex-col sm:flex-row gap-4">
+                            <button class="add-to-cart-btn flex-grow bg-[#1c3a63] text-white px-8 py-5 rounded-2xl font-bold tracking-widest text-lg shadow-xl hover:-translate-y-1 transition-all" data-name="${product.name}" onmouseover="this.style.backgroundColor='${product.themeColor}'" onmouseout="this.style.backgroundColor='#1c3a63'">
+                                ADD TO CART
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            setTimeout(() => { container.classList.remove('opacity-0'); }, 100);
+        } else if (container) {
+            // Not found
+            container.innerHTML = `
+                <div class="text-center max-w-2xl mx-auto py-20">
+                    <h1 class="font-display text-5xl text-[#1c3a63] mb-6">TREAT NOT FOUND</h1>
+                    <p class="font-bold text-xl tracking-widest text-[#1c3a63]/70 mb-8">It seems this treat has already been eaten. Let's get you back to the shop.</p>
+                    <a href="shop.html" class="inline-block bg-[#e891b6] text-white px-8 py-4 rounded-xl font-bold tracking-widest hover:scale-105 transition-transform shadow-lg">BACK TO SHOP</a>
+                </div>
+            `;
+            setTimeout(() => { container.classList.remove('opacity-0'); }, 100);
+        }
+    }
+
+    // --- Checkout Page Logic ---
+    if (window.location.pathname.includes('checkout.html')) {
+        const checkoutItemsContainer = document.getElementById('checkout-items');
+        const checkoutSubtotalEl = document.getElementById('checkout-subtotal');
+        const checkoutDeliveryFeeEl = document.getElementById('checkout-delivery-fee');
+        const checkoutTotalEl = document.getElementById('checkout-total');
+        const deliveryRadios = document.querySelectorAll('input[name="delivery-method"]');
+        const addressContainer = document.getElementById('address-container');
+        const finalizeBtn = document.getElementById('finalize-order-btn');
+        
+        let subtotal = 0;
+        let deliveryFee = 0; // Default pickup
+
+        const formatPrice = (price) => `R${price.toFixed(2)}`;
+
+        function renderCheckoutItems() {
+            let html = '';
+            subtotal = 0;
+            
+            for (const [item, qty] of Object.entries(cart)) {
+                const product = typeof productData !== 'undefined' ? productData.find(p => p.name === item) : null;
+                const price = product ? product.price : 0;
+                const itemTotal = price * qty;
+                subtotal += itemTotal;
+                
+                html += `
+                    <div class="flex justify-between items-center border-b border-white/10 pb-3 mb-3 last:border-0 last:mb-0 last:pb-0">
+                        <div>
+                            <div class="font-bold text-sm tracking-widest">${item}</div>
+                            <div class="text-xs text-white/70">QTY: ${qty}</div>
+                        </div>
+                        <div class="font-bold">${formatPrice(itemTotal)}</div>
+                    </div>
+                `;
+            }
+
+            if (Object.keys(cart).length === 0) {
+                html = '<div class="text-center text-white/70 font-bold py-4">YOUR CART IS EMPTY.</div>';
+            }
+
+            if (checkoutItemsContainer) checkoutItemsContainer.innerHTML = html;
+            updateTotals();
+        }
+
+        function updateTotals() {
+            const total = subtotal + deliveryFee;
+            if (checkoutSubtotalEl) checkoutSubtotalEl.textContent = formatPrice(subtotal);
+            if (checkoutDeliveryFeeEl) checkoutDeliveryFeeEl.textContent = formatPrice(deliveryFee);
+            if (checkoutTotalEl) checkoutTotalEl.textContent = formatPrice(total);
+        }
+
+        deliveryRadios.forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                if (e.target.value === 'delivery') {
+                    deliveryFee = 50;
+                    if (addressContainer) addressContainer.classList.remove('hidden');
+                } else {
+                    deliveryFee = 0;
+                    if (addressContainer) addressContainer.classList.add('hidden');
+                }
+                updateTotals();
+            });
+        });
+
+        const recContainer = document.getElementById('recommendation-container');
+        const recContent = document.getElementById('recommendation-content');
+        if (recContainer && typeof productData !== 'undefined') {
+            const availableProducts = productData.filter(p => !cart[p.name]);
+            if (availableProducts.length > 0) {
+                const randomProduct = availableProducts[Math.floor(Math.random() * availableProducts.length)];
+                recContainer.classList.remove('hidden');
+                
+                recContent.innerHTML = `
+                    <div class="w-24 h-24 rounded-2xl flex items-center justify-center flex-shrink-0" style="background-color: ${randomProduct.themeColor}">
+                        <img src="${randomProduct.imageUrl}" class="w-2/3 h-2/3 object-cover rounded-full shadow-md">
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="font-black text-[#1c3a63] text-lg tracking-wider uppercase mb-1">${randomProduct.name}</h3>
+                        <p class="font-bold text-sm text-[#1c3a63]/70 mb-2">${formatPrice(randomProduct.price)}</p>
+                        <button class="add-to-cart-btn text-white px-4 py-2 rounded-xl text-xs font-bold tracking-widest hover:scale-105 transition-transform" data-name="${randomProduct.name}" style="background-color: #1c3a63;">
+                            ADD TO CART
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        if (finalizeBtn) {
+            finalizeBtn.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent form submission if inside a form
+                if (Object.keys(cart).length === 0) {
+                    alert("Your cart is empty!");
+                    return;
+                }
+
+                const name = document.getElementById('checkout-name').value.trim();
+                const phone = document.getElementById('checkout-phone').value.trim();
+                const deliveryMethod = document.querySelector('input[name="delivery-method"]:checked').value;
+                const address = document.getElementById('checkout-address').value.trim();
+
+                if (!name || !phone) {
+                    alert("Please provide your Name and WhatsApp Number.");
+                    return;
+                }
+
+                if (deliveryMethod === 'delivery' && !address) {
+                    alert("Please provide a Delivery Address.");
+                    return;
+                }
+
+                let message = `*NEW ORDER - DIPPED SHX*%0A%0A`;
+                message += `*Customer:* ${name}%0A`;
+                message += `*Phone:* ${phone}%0A`;
+                message += `*Method:* ${deliveryMethod.toUpperCase()}%0A`;
+                if (deliveryMethod === 'delivery') {
+                    message += `*Address:* ${address}%0A`;
+                }
+                message += `%0A*--- ORDER ITEMS ---*%0A`;
+                
+                for (const [item, qty] of Object.entries(cart)) {
+                    const product = typeof productData !== 'undefined' ? productData.find(p => p.name === item) : null;
+                    const price = product ? product.price : 0;
+                    message += `- ${qty}x ${item} (R${(price * qty).toFixed(2)})%0A`;
+                }
+                
+                message += `%0A*Subtotal:* R${subtotal.toFixed(2)}%0A`;
+                message += `*Delivery Fee:* R${deliveryFee.toFixed(2)}%0A`;
+                message += `*TOTAL:* R${(subtotal + deliveryFee).toFixed(2)}%0A`;
+                
+                message += `%0APlease confirm my order!`;
+
+                window.open(`https://wa.me/27621201496?text=${message}`, '_blank');
+            });
+        }
+
+        renderCheckoutItems();
+        
+        document.body.addEventListener('click', (e) => {
+            if (e.target.closest('.add-to-cart-btn') || e.target.closest('.cart-plus') || e.target.closest('.cart-minus')) {
+                setTimeout(renderCheckoutItems, 50);
+            }
         });
     }
 

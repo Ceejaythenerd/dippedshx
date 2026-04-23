@@ -54,60 +54,11 @@
         </div>
     </nav>
 
-    <!-- --- SHOP HEADER --- -->
-    <header class="pt-32 pb-16 px-6 md:px-12 bg-[#f5ebd9] relative z-10 flex flex-col items-center">
-        <div class="relative inline-block mb-4">
-            <h1 class="font-display text-5xl md:text-7xl text-center text-[#1c3a63] text-depth-cream drop-shadow-md">
-                SHOP ALL
-            </h1>
-        </div>
-        <p class="text-center text-[#1c3a63] font-bold tracking-widest text-lg md:text-xl max-w-2xl mx-auto">
-            BROWSE OUR COMPLETE SELECTION OF PREMIUM INFUSED TREATS.
-        </p>
-    </header>
-    <!-- --- SHOP CATEGORIES --- -->
-    <main class="bg-[#f5ebd9] pb-32 px-6 md:px-12 space-y-24 z-10 relative">
-        
-        <!-- Decorative Background Images -->
-        <img src="img/yellow-flower.png" class="absolute top-[15%] -left-10 md:-left-16 w-32 md:w-48 object-contain opacity-[0.85] transform -rotate-12 pointer-events-none z-[-1]" loading="lazy" alt="">
-        <img src="img/bud-smart.png" class="absolute top-[35%] -right-16 md:-right-32 w-72 md:w-[30rem] object-contain opacity-[0.85] transform rotate-12 pointer-events-none z-[-1]" loading="lazy" alt="">
-        <img src="img/purple-flower.png" class="absolute top-[65%] -right-10 md:-right-20 w-40 md:w-64 object-contain opacity-[0.85] transform rotate-[25deg] pointer-events-none z-[-1]" loading="lazy" alt="">
-        <img src="img/bitten-cookie.png" class="absolute bottom-20 -left-10 md:-left-20 w-56 md:w-80 object-contain opacity-[0.85] transform -rotate-6 pointer-events-none z-[-1]" loading="lazy" alt="">
-
-        <!-- SEARCH BAR -->
-        <div class="max-w-xl mx-auto pt-10 relative">
-            <img src="img/bud-dealer.png" class="absolute -right-24 md:-right-64 top-[60%] -translate-y-1/2 w-64 md:w-[30rem] object-contain transform rotate-12 opacity-[0.85] pointer-events-none z-[-1]" loading="lazy" alt="">
-            <div class="relative z-10">
-                <input type="text" id="product-search" placeholder="Search for treats, flavors..." class="w-full bg-white border-4 border-[#1c3a63] text-[#1c3a63] px-6 py-4 rounded-full font-bold tracking-widest focus:outline-none focus:border-[#e891b6] transition-colors shadow-lg placeholder:text-[#1c3a63]/40">
-                <svg class="absolute right-6 top-1/2 -translate-y-1/2 text-[#1c3a63]/40" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            </div>
-        </div>
-        
-        <!-- COOKIES & BROWNIES -->
-        <section id="shop-cookies" class="max-w-6xl mx-auto relative pt-10">
-            <h2 class="font-display text-4xl text-[#1c3a63] mb-8 border-b-4 border-[#1c3a63]/10 pb-4">COOKIES & BROWNIES</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="grid-cookies">
-            </div>
-        </section>
-        <!-- ICE-CREAMS -->
-        <section id="shop-icecreams" class="max-w-6xl mx-auto relative pt-10">
-            <h2 class="font-display text-4xl text-[#1c3a63] mb-8 border-b-4 border-[#1c3a63]/10 pb-4">ICE-CREAMS</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="grid-icecreams">
-            </div>
-        </section>
-        <!-- SAUCES -->
-        <section id="shop-sauces" class="max-w-6xl mx-auto relative pt-10">
-            <h2 class="font-display text-4xl text-[#1c3a63] mb-8 border-b-4 border-[#1c3a63]/10 pb-4">SAUCES</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="grid-sauces">
-            </div>
-        </section>
-
-        <div class="flex justify-center mt-16 pb-16">
-            <button id="shop-open-cart-btn" class="inline-block bg-[#1c3a63] text-white px-12 py-4 rounded-full font-display text-2xl hover:scale-105 transition-transform drop-shadow-xl border-4 border-[#1c3a63]">
-                VIEW CART
-            </button>
-        </div>
+    <!-- --- PRODUCT DETAIL --- -->
+    <main id="product-detail-container" class="opacity-0 transition-opacity duration-500 pt-32 pb-24 px-6 md:px-12 min-h-screen relative z-10">
+        <!-- Content injected via JS -->
     </main>
+
 
     <!-- --- FOOTER --- -->
     <footer class="bg-[#f5ebd9] py-8 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between relative z-10 border-t-4 border-[#e891b6]/20">
