@@ -376,7 +376,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (typeof productData !== 'undefined') {
             productData.forEach(product => {
                 const cardHtml = `
-                    <div class="bg-white rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all border-4 border-transparent hover:border-[#1c3a63] group flex flex-col h-full cursor-pointer shop-card" data-id="${product.id}">
+                    <div class="bg-white rounded-3xl p-4 sm:p-6 shadow-xl hover:shadow-2xl transition-all border-4 border-transparent hover:border-[#1c3a63] group flex flex-col h-full cursor-pointer shop-card" data-id="${product.id}">
                         <div style="background-color: ${product.themeColor}" class="rounded-2xl aspect-square mb-6 flex items-center justify-center overflow-hidden">
                             <img src="${product.imageUrl}" alt="${product.name}" loading="lazy" class="w-2/3 h-2/3 object-cover rounded-full shadow-md group-hover:scale-110 transition-transform">
                         </div>
@@ -446,13 +446,13 @@ document.addEventListener("DOMContentLoaded", () => {
             
             container.innerHTML = `
                 <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div style="background-color: ${product.themeColor}" class="rounded-[3rem] p-8 md:p-12 aspect-square flex items-center justify-center shadow-2xl relative overflow-hidden group">
-                        <div class="absolute inset-4 border-4 border-white/20 rounded-[2rem] pointer-events-none"></div>
+                    <div style="background-color: ${product.themeColor}" class="rounded-[2rem] md:rounded-[3rem] p-6 md:p-12 aspect-square flex items-center justify-center shadow-2xl relative overflow-hidden group">
+                        <div class="absolute inset-4 border-4 border-white/20 rounded-[1.5rem] md:rounded-[2rem] pointer-events-none"></div>
                         <img src="${product.imageUrl}" alt="${product.name}" class="w-3/4 h-3/4 object-cover rounded-2xl shadow-xl transform group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="space-y-6">
                         <a href="shop.html" class="inline-block text-[#1c3a63]/60 font-bold tracking-widest hover:text-[#e891b6] transition-colors mb-2 uppercase text-sm">&larr; BACK TO SHOP</a>
-                        <h1 class="font-display text-5xl md:text-7xl text-[#1c3a63] leading-tight">${product.name}</h1>
+                        <h1 class="font-display text-4xl sm:text-5xl md:text-7xl text-[#1c3a63] leading-tight">${product.name}</h1>
                         <p style="color: ${product.themeColor}" class="font-bold text-2xl tracking-widest">R${product.price.toFixed(2)}</p>
                         <p class="text-lg text-[#1c3a63]/80 font-bold tracking-widest leading-relaxed">${product.longDescription}</p>
                         
@@ -476,7 +476,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Not found
             container.innerHTML = `
                 <div class="text-center max-w-2xl mx-auto py-20">
-                    <h1 class="font-display text-5xl text-[#1c3a63] mb-6">TREAT NOT FOUND</h1>
+                    <h1 class="font-display text-4xl sm:text-5xl text-[#1c3a63] mb-6">TREAT NOT FOUND</h1>
                     <p class="font-bold text-xl tracking-widest text-[#1c3a63]/70 mb-8">It seems this treat has already been eaten. Let's get you back to the shop.</p>
                     <a href="shop.html" class="inline-block bg-[#e891b6] text-white px-8 py-4 rounded-xl font-bold tracking-widest hover:scale-105 transition-transform shadow-lg">BACK TO SHOP</a>
                 </div>
