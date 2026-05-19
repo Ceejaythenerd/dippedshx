@@ -1,115 +1,256 @@
 const productData = [
     {
-        id: "signature-cookies",
-        name: "Signature Cookies",
-        category: "cookies",
-        shortDescription: "Premium infused chocolate chip cookies.",
-        longDescription: "Our Signature Cookies are baked to perfection with premium ingredients and our special infusion. Expect a soft, chewy center with crispy edges, packed with rich chocolate chips. Perfect for satisfying your sweet tooth while enjoying a relaxing experience.",
-        price: 15.00,
-        imageUrl: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        details: [
-            "Handcrafted in small batches",
-            "Premium chocolate chips",
-            "Perfectly balanced infusion",
-            "Contains dairy and gluten"
-        ],
-        themeColor: "#e891b6"
-    },
-    {
-        id: "double-choc-brownies",
-        name: "Double Choc Brownies",
-        category: "cookies",
-        shortDescription: "Rich, fudgy, and intensely satisfying.",
-        longDescription: "These Double Choc Brownies are incredibly dense and fudgy, made with high-quality cocoa and dark chocolate chunks. Each bite delivers a deeply satisfying chocolate experience coupled with our signature infusion.",
-        price: 18.00,
-        imageUrl: "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        details: [
-            "Rich and fudgy texture",
-            "Double chocolate goodness",
-            "Premium quality infusion",
-            "Contains dairy and gluten"
-        ],
-        themeColor: "#e891b6"
-    },
-    {
-        id: "ice-cream-sandwiches",
-        name: "Ice-Cream Sandwiches",
+        id: "biscoff-ice-cream",
+        name: "Biscoff Ice Cream",
         category: "icecreams",
-        shortDescription: "The perfect combo of cookie and cream.",
-        longDescription: "Experience the ultimate treat with our infused Ice-Cream Sandwiches. We wedge a generous scoop of rich, creamy vanilla bean ice cream between two of our signature chewy cookies. The perfect way to cool down and unwind.",
-        price: 12.00,
-        imageUrl: "https://images.unsplash.com/photo-1563805042-7684c8e9e533?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        details: [
-            "Vanilla bean ice cream",
-            "Signature chewy cookies",
-            "Refreshing infused treat",
-            "Keep frozen until ready to consume"
-        ],
-        themeColor: "#5ac1b0"
-    },
-    {
-        id: "ice-cream-tubs",
-        name: "Ice-Cream Tubs",
-        category: "icecreams",
-        shortDescription: "Grab a spoon and elevate your chill.",
-        longDescription: "Our premium infused Ice-Cream Tubs are packed with flavor and crafted for maximum relaxation. Made with real cream and available in select mouth-watering flavors. Grab a spoon and sink into absolute bliss.",
-        price: 25.00,
-        imageUrl: "https://images.unsplash.com/photo-1570197571499-166b36435e9f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        details: [
-            "Rich and creamy texture",
-            "Made with real cream",
-            "Perfect for sharing (or not)",
-            "Keep frozen until ready to consume"
-        ],
-        themeColor: "#5ac1b0"
-    },
-    {
-        id: "ice-cream-popsicles",
-        name: "Ice-Cream Popsicles",
-        category: "icecreams",
-        shortDescription: "Refreshing treats on a stick.",
-        longDescription: "Cool off with our vibrant and refreshing infused Ice-Cream Popsicles. Whether you're lounging by the pool or just beating the heat, these popsicles deliver a perfectly measured dose of relaxation in every bite.",
+        shortDescription: "Creamy Biscoff infused ice cream.",
+        longDescription: "Our premium Biscoff ice cream features a perfectly balanced infusion and the classic caramelized biscuit flavor you love.",
         price: 10.00,
-        imageUrl: "https://images.unsplash.com/photo-1522856339183-5a7bb57767da?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        details: [
-            "Refreshing and sweet",
-            "Convenient on-the-go treat",
-            "Perfectly infused",
-            "Keep frozen until ready to consume"
-        ],
+        imageUrl: "products/1.png",
+        details: ["Rich and creamy texture", "Classic Biscoff flavor", "Perfectly infused", "Keep frozen until ready to consume"],
         themeColor: "#5ac1b0"
     },
     {
-        id: "hot-sauce",
-        name: "Hot Sauce",
-        category: "sauces",
-        shortDescription: "Bring the heat to any meal.",
-        longDescription: "Spice up your life with our signature infused Hot Sauce. Crafted with a blend of fiery peppers and savory spices, it delivers a flavorful kick followed by a wave of relaxation. Perfect for tacos, eggs, or anything that needs a little extra fire.",
-        price: 14.00,
-        imageUrl: "https://images.unsplash.com/photo-1607532941433-304659e8198a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        details: [
-            "Medium-high heat level",
-            "Savory and spicy flavor profile",
-            "Infused for relaxation",
-            "Shake well before use"
-        ],
-        themeColor: "#facc15"
+        id: "mango-tango-ice-cream",
+        name: "Mango Tango Ice Cream",
+        category: "icecreams",
+        shortDescription: "Tropical mango infused ice cream.",
+        longDescription: "Experience a tropical getaway with our Mango Tango infused ice cream. Sweet, refreshing, and perfectly chill.",
+        price: 10.00,
+        imageUrl: "products/2.png",
+        details: ["Tropical mango flavor", "Refreshing and sweet", "Perfectly infused", "Keep frozen until ready to consume"],
+        themeColor: "#5ac1b0"
     },
     {
-        id: "caramel-chocolate-sauce",
-        name: "Caramel & Chocolate",
-        category: "sauces",
-        shortDescription: "Sweet drizzles for your sweet tooth.",
-        longDescription: "Decadence in a bottle. Our infused Caramel & Chocolate sauce is the ultimate topping for ice cream, brownies, or fresh fruit. Rich, velvety, and perfectly infused to make your dessert time truly magical.",
-        price: 16.00,
-        imageUrl: "https://images.unsplash.com/photo-1558231221-a18ac49bfe38?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        details: [
-            "Rich caramel and chocolate blend",
-            "Velvety smooth texture",
-            "Perfect dessert topping",
-            "Refrigerate after opening"
-        ],
-        themeColor: "#facc15"
+        id: "smores-ice-cream",
+        name: "Smores Ice Cream",
+        category: "icecreams",
+        shortDescription: "Campfire classic in a scoop.",
+        longDescription: "Rich chocolate, marshmallow swirls, and graham cracker crunch, all infused for maximum relaxation.",
+        price: 10.00,
+        imageUrl: "products/3.png",
+        details: ["Campfire classic flavor", "Rich chocolate and marshmallow", "Perfectly infused", "Keep frozen until ready to consume"],
+        themeColor: "#5ac1b0"
+    },
+    {
+        id: "strawberry-wave-ice-cream",
+        name: "Strawberry Wave Ice Cream",
+        category: "icecreams",
+        shortDescription: "Sweet strawberry infused ice cream.",
+        longDescription: "Ride the wave of relaxation with this sweet and creamy strawberry infused ice cream.",
+        price: 10.00,
+        imageUrl: "products/4.png",
+        details: ["Real strawberry flavor", "Rich and creamy texture", "Perfectly infused", "Keep frozen until ready to consume"],
+        themeColor: "#5ac1b0"
+    },
+    {
+        id: "oreo-chunk-ice-cream",
+        name: "Oreo Chunk Ice Cream",
+        category: "icecreams",
+        shortDescription: "Cookies and cream perfection.",
+        longDescription: "Large chunks of Oreo cookies folded into our rich, infused vanilla ice cream base.",
+        price: 10.00,
+        imageUrl: "products/5.png",
+        details: ["Large Oreo chunks", "Rich and creamy texture", "Perfectly infused", "Keep frozen until ready to consume"],
+        themeColor: "#5ac1b0"
+    },
+    {
+        id: "choconado-ice-cream",
+        name: "Choconado Ice Cream",
+        category: "icecreams",
+        shortDescription: "A whirlwind of chocolate.",
+        longDescription: "For the true chocolate lover, a rich and fudgy chocolate ice cream perfectly infused for your enjoyment.",
+        price: 10.00,
+        imageUrl: "products/6.png",
+        details: ["Deep chocolate flavor", "Rich and creamy texture", "Perfectly infused", "Keep frozen until ready to consume"],
+        themeColor: "#5ac1b0"
+    },
+    {
+        id: "vanilla-nilla-ice-cream",
+        name: "Vanilla Nilla Ice Cream",
+        category: "icecreams",
+        shortDescription: "Classic vanilla bean infused.",
+        longDescription: "Smooth, classic vanilla bean ice cream infused to help you unwind and relax.",
+        price: 10.00,
+        imageUrl: "products/7.png",
+        details: ["Classic vanilla bean", "Smooth and creamy", "Perfectly infused", "Keep frozen until ready to consume"],
+        themeColor: "#5ac1b0"
+    },
+    {
+        id: "salted-caramel-cuppaccino-ice-cream",
+        name: "Salted Caramel Cuppaccino",
+        category: "icecreams",
+        shortDescription: "Coffee and caramel infused delight.",
+        longDescription: "The perfect blend of coffee flavor and salty-sweet caramel, infused for a uniquely relaxing experience.",
+        price: 10.00,
+        imageUrl: "products/8.png",
+        details: ["Coffee and caramel blend", "Sweet and salty", "Perfectly infused", "Keep frozen until ready to consume"],
+        themeColor: "#5ac1b0"
+    },
+    {
+        id: "brownie-chunk-ice-cream",
+        name: "Brownie Chunk Ice Cream",
+        category: "icecreams",
+        shortDescription: "Fudgy brownie bites in ice cream.",
+        longDescription: "Rich vanilla ice cream loaded with dense, fudgy brownie chunks and perfectly infused.",
+        price: 10.00,
+        imageUrl: "products/9.png",
+        details: ["Fudgy brownie chunks", "Rich and creamy texture", "Perfectly infused", "Keep frozen until ready to consume"],
+        themeColor: "#5ac1b0"
+    },
+    {
+        id: "the-unicorn-ice-cream",
+        name: "The Unicorn Ice Cream",
+        category: "icecreams",
+        shortDescription: "Magical and colorful infused treat.",
+        longDescription: "A magical swirl of colorful ice cream with a sweet, fruity flavor, perfectly infused for relaxation.",
+        price: 10.00,
+        imageUrl: "products/10.png",
+        details: ["Colorful and fun", "Sweet fruity flavor", "Perfectly infused", "Keep frozen until ready to consume"],
+        themeColor: "#5ac1b0"
+    },
+    {
+        id: "barone-ice-cream",
+        name: "Barone Ice Cream",
+        category: "icecreams",
+        shortDescription: "Premium chocolate and caramel infused.",
+        longDescription: "Decadent chocolate ice cream with ribbons of rich caramel, perfectly infused.",
+        price: 10.00,
+        imageUrl: "products/11.png",
+        details: ["Premium chocolate", "Rich caramel ribbons", "Perfectly infused", "Keep frozen until ready to consume"],
+        themeColor: "#5ac1b0"
+    },
+    {
+        id: "funfetti-ice-cream-sandwich",
+        name: "Funfetti Ice Cream Sandwich",
+        category: "icecreams",
+        shortDescription: "Sprinkle-covered ice cream sandwich.",
+        longDescription: "Our infused ice cream wedged between two soft cookies and rolled in colorful sprinkles.",
+        price: 12.00,
+        imageUrl: "products/12.png",
+        details: ["Colorful sprinkles", "Soft cookies", "Perfectly infused", "Keep frozen until ready to consume"],
+        themeColor: "#5ac1b0"
+    },
+    {
+        id: "choco-dipped-ice-cream-sandwich",
+        name: "Choco Dipped Ice Cream Sandwich",
+        category: "icecreams",
+        shortDescription: "Half-dipped in rich chocolate.",
+        longDescription: "A classic infused ice cream sandwich, half-dipped in a hard chocolate shell.",
+        price: 12.00,
+        imageUrl: "products/13.png",
+        details: ["Hard chocolate shell", "Classic vanilla and cookie", "Perfectly infused", "Keep frozen until ready to consume"],
+        themeColor: "#5ac1b0"
+    },
+    {
+        id: "cookie-monster-ice-cream-sandwich",
+        name: "Cookie Monster Ice Cream Sandwich",
+        category: "icecreams",
+        shortDescription: "Blue cookie dough ice cream sandwich.",
+        longDescription: "Blue infused ice cream loaded with cookie dough, sandwiched between two chocolate chip cookies.",
+        price: 12.00,
+        imageUrl: "products/14.png",
+        details: ["Blue cookie dough ice cream", "Chocolate chip cookies", "Perfectly infused", "Keep frozen until ready to consume"],
+        themeColor: "#5ac1b0"
+    },
+    {
+        id: "cookies-cream-ice-cream-sandwich",
+        name: "Cookies & Cream Ice Cream Sandwich",
+        category: "icecreams",
+        shortDescription: "Oreo lover's dream sandwich.",
+        longDescription: "Infused cookies and cream ice cream sandwiched between two soft chocolate chip cookies.",
+        price: 12.00,
+        imageUrl: "products/15.png",
+        details: ["Cookies and cream ice cream", "Soft chocolate chip cookies", "Perfectly infused", "Keep frozen until ready to consume"],
+        themeColor: "#5ac1b0"
+    },
+    {
+        id: "death-by-chocolate-cake-tub",
+        name: "Death By Chocolate Cake In Tub",
+        category: "cookies",
+        shortDescription: "Decadent chocolate cake layers.",
+        longDescription: "Layers of incredibly moist chocolate cake and rich frosting, perfectly infused in a convenient tub.",
+        price: 15.00,
+        imageUrl: "products/16.png",
+        details: ["Moist chocolate cake", "Rich frosting layers", "Perfectly infused", "Decadent dessert treat"],
+        themeColor: "#e891b6"
+    },
+    {
+        id: "smartie-pants-cookie",
+        name: "Smartie Pants Cookie",
+        category: "cookies",
+        shortDescription: "Infused candy-coated chocolate cookie.",
+        longDescription: "A soft, chewy cookie loaded with candy-coated chocolates and our signature infusion.",
+        price: 8.00,
+        imageUrl: "products/17.png",
+        details: ["Candy-coated chocolates", "Soft and chewy", "Perfectly infused", "Handcrafted in small batches"],
+        themeColor: "#e891b6"
+    },
+    {
+        id: "strawberry-cookie",
+        name: "Strawberry Cookie",
+        category: "cookies",
+        shortDescription: "Sweet strawberry infused cookie.",
+        longDescription: "A vibrant, soft-baked strawberry cookie that delivers a perfectly measured dose of relaxation.",
+        price: 8.00,
+        imageUrl: "products/18.png",
+        details: ["Sweet strawberry flavor", "Soft-baked texture", "Perfectly infused", "Handcrafted in small batches"],
+        themeColor: "#e891b6"
+    },
+    {
+        id: "kinder-beuno-cookie",
+        name: "Kinder Bueno Cookie",
+        category: "cookies",
+        shortDescription: "Hazelnut chocolate perfection.",
+        longDescription: "An infused cookie topped with creamy hazelnut chocolate for an indulgent, relaxing treat.",
+        price: 8.00,
+        imageUrl: "products/19.png",
+        details: ["Hazelnut chocolate topping", "Rich and indulgent", "Perfectly infused", "Handcrafted in small batches"],
+        themeColor: "#e891b6"
+    },
+    {
+        id: "birthday-cookie",
+        name: "Birthday Cookie",
+        category: "cookies",
+        shortDescription: "Celebrate with sprinkles.",
+        longDescription: "A fun, sprinkle-filled infused cookie that tastes like cake batter and relaxation.",
+        price: 8.00,
+        imageUrl: "products/20.png",
+        details: ["Cake batter flavor", "Colorful sprinkles", "Perfectly infused", "Handcrafted in small batches"],
+        themeColor: "#e891b6"
+    },
+    {
+        id: "classic-choc-chip-cookie",
+        name: "Classic Choc Chip Cookie",
+        category: "cookies",
+        shortDescription: "The timeless infused favorite.",
+        longDescription: "Our signature infused chocolate chip cookie. Soft, chewy, and loaded with premium chocolate chips.",
+        price: 8.00,
+        imageUrl: "products/21.png",
+        details: ["Premium chocolate chips", "Classic chewy texture", "Perfectly infused", "Handcrafted in small batches"],
+        themeColor: "#e891b6"
+    },
+    {
+        id: "smore-cookie",
+        name: "Smore Cookie",
+        category: "cookies",
+        shortDescription: "Toasted marshmallow and chocolate.",
+        longDescription: "An infused cookie packed with chocolate chips and topped with a perfectly toasted marshmallow.",
+        price: 8.00,
+        imageUrl: "products/22.png",
+        details: ["Toasted marshmallow", "Chocolate chunks", "Perfectly infused", "Handcrafted in small batches"],
+        themeColor: "#e891b6"
+    },
+    {
+        id: "blueberry-lemon-cookie",
+        name: "Blueberry Lemon Cookie",
+        category: "cookies",
+        shortDescription: "Zesty and sweet infused cookie.",
+        longDescription: "A refreshing blend of zesty lemon and sweet blueberries in a soft-baked, infused cookie.",
+        price: 8.00,
+        imageUrl: "products/23.png",
+        details: ["Zesty lemon", "Sweet blueberries", "Perfectly infused", "Handcrafted in small batches"],
+        themeColor: "#e891b6"
     }
 ];
 
