@@ -66,8 +66,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         <img src="${product.imageUrl}" alt="${product.name}" class="w-3/4 h-3/4 object-cover rounded-2xl shadow-xl transform group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="space-y-6">
-                        <a href="shop.html" class="inline-block text-[#1c3a63]/60 font-bold tracking-widest hover:text-[#e891b6] transition-colors mb-2 uppercase text-sm">&larr; BACK TO SHOP</a>
-                        <h1 class="font-display text-4xl sm:text-5xl md:text-7xl text-[#1c3a63] leading-tight">${product.name}</h1>
+                        <a href="shop.html" class="inline-block text-[#1c3a63]/60 font-bold tracking-widest hover:text-[#e891b6] transition-colors mb-2 uppercase text-sm md:text-base py-2">&larr; BACK TO SHOP</a>
+                        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[#1c3a63] leading-tight">${product.name}</h1>
                         <p style="color: ${product.themeColor}" class="font-bold text-2xl tracking-widest">R${product.price.toFixed(2)}</p>
                         <p class="text-lg text-[#1c3a63]/80 font-bold tracking-widest leading-relaxed">${product.longDescription}</p>
                         <div class="pt-6 border-t-4 border-[#1c3a63]/10">
