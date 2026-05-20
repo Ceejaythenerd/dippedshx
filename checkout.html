@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout | Dipped Shx</title>
     <meta name="description" content="Finalize your order for premium handcrafted infused treats." />
+    <meta property="og:title" content="Checkout | Dipped Shx" />
+    <meta property="og:description" content="Finalize your order for premium handcrafted infused treats." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://dippedshx.com/img/logo.png" />
+    <meta property="og:url" content="https://dippedshx.com/checkout.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Checkout | Dipped Shx" />
+    <meta name="twitter:description" content="Finalize your order for premium handcrafted infused treats." />
+    <meta name="twitter:image" content="https://dippedshx.com/img/logo.png" />
     
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Global Styles -->
-    <link rel="stylesheet" href="styles.css">
+    <!-- Tailwind Compiled CSS -->
+    <link rel="stylesheet" href="dist/output.css">
     
     <!-- Centralized Product Data -->
     <script src="products/product-data.js"></script>
@@ -153,7 +159,24 @@
         </div>
     </footer>
 
+    <!-- Error Modal -->
+    <div id="error-modal" style="z-index: 9999;" class="fixed inset-0 bg-[#1c3a63]/80 backdrop-blur-md flex items-center justify-center transition-opacity duration-300 opacity-0 pointer-events-none p-6">
+        <div class="bg-[#f5ebd9] p-8 md:p-12 rounded-[2rem] w-full max-w-sm border-4 border-[#e891b6] shadow-2xl relative transform scale-95 transition-transform duration-300 text-center" id="error-modal-content">
+            <h2 class="font-display text-4xl text-[#1c3a63] mb-4">WHOOPS!</h2>
+            <p id="error-modal-msg" class="font-bold text-sm tracking-widest text-[#1c3a63] leading-relaxed mb-8">
+                <!-- Error message injected here -->
+            </p>
+            <button id="close-error-modal" class="w-full bg-[#1c3a63] text-white px-8 py-3 rounded-2xl font-bold tracking-widest hover:scale-105 transition-transform shadow-lg">
+                GOT IT
+            </button>
+        </div>
+    </div>
+
     <!-- Minimal JS to handle basic functionality -->
-    <script src="script.js"></script>
+    <!-- Componentized JS -->
+    <script src="js/cart.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/shop.js"></script>
+    <script src="js/checkout.js"></script>
 </body>
 </html>

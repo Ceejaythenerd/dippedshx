@@ -251,6 +251,28 @@ const productData = [
         imageUrl: "products/23.png",
         details: ["Zesty lemon", "Sweet blueberries", "Perfectly infused", "Handcrafted in small batches"],
         themeColor: "#e891b6"
+    },
+    {
+        id: "caramel-drizzle-sauce",
+        name: "Caramel Drizzle",
+        category: "sauces",
+        shortDescription: "Infused caramel perfection.",
+        longDescription: "Rich, buttery caramel infused for a relaxing addition to any dessert.",
+        price: 15.00,
+        imageUrl: "products/24.png",
+        details: ["Rich buttery flavor", "Perfect for ice cream", "Perfectly infused", "Store in a cool place"],
+        themeColor: "#1c3a63"
+    },
+    {
+        id: "chocolate-fudge-sauce",
+        name: "Chocolate Fudge",
+        category: "sauces",
+        shortDescription: "Decadent chocolate sauce.",
+        longDescription: "Thick, rich chocolate fudge sauce, perfectly infused for the ultimate treat.",
+        price: 15.00,
+        imageUrl: "products/24.png",
+        details: ["Deep chocolate flavor", "Thick and fudgy", "Perfectly infused", "Store in a cool place"],
+        themeColor: "#1c3a63"
     }
 ];
 

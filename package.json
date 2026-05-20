@@ -1,0 +1,12 @@
+{
+  "name": "dippedshx",
+  "version": "1.0.0",
+  "description": "Dipped Shx Static Site",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}

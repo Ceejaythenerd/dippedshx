@@ -8,12 +8,15 @@
     <meta property="og:title" content="Dipped Shx" />
     <meta property="og:description" content="Premium Handcrafted Infused Treats." />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://dippedshx.com/img/logo.png" />
+    <meta property="og:url" content="https://dippedshx.com/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dipped Shx" />
+    <meta name="twitter:description" content="Premium Handcrafted Infused Treats." />
+    <meta name="twitter:image" content="https://dippedshx.com/img/logo.png" />
     
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Global Styles for Fonts and specific text effects -->
-    <link rel="stylesheet" href="styles.css">
+    <!-- Tailwind Compiled CSS -->
+    <link rel="stylesheet" href="dist/output.css">
     
     <!-- Centralized Product Data -->
     <script src="products/product-data.js"></script>
@@ -103,12 +106,12 @@
 
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
             <!-- Card 1: Cookies -->
-            <div class="flex flex-col items-center group cursor-pointer product-card" data-product="cookies">
+            <a href="shop.html#shop-cookies" class="flex flex-col items-center group cursor-pointer">
                 <h3 class="font-display text-2xl text-[#f5ebd9] mb-6 text-outline-blue tracking-wider">COOKIES</h3>
                 <div class="bg-[#1c3a63] p-4 rounded-3xl mb-6 w-full max-w-[280px] aspect-square flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform">
                     <div class="absolute inset-2 border-2 border-[#5ac1b0] rounded-2xl pointer-events-none z-10"></div>
                     <img 
-                        src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                        src="products/21.png" 
                         alt="Cookies" 
                         loading="lazy"
                         class="w-4/5 h-4/5 object-cover rounded-full shadow-lg transform rotate-12"
@@ -117,15 +120,15 @@
                 <p class="font-bold text-base md:text-lg tracking-widest text-[#1c3a63] leading-relaxed">
                     COOKIES<br/>BROWNIES
                 </p>
-            </div>
+            </a>
 
             <!-- Card 2: Ice-Creams -->
-            <div class="flex flex-col items-center group cursor-pointer product-card" data-product="icecreams">
+            <a href="shop.html#shop-icecreams" class="flex flex-col items-center group cursor-pointer">
                 <h3 class="font-display text-2xl text-[#f5ebd9] mb-6 text-outline-blue tracking-wider">ICE-CREAMS</h3>
                 <div class="bg-[#1c3a63] p-4 rounded-3xl mb-6 w-full max-w-[280px] aspect-square flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform">
                     <div class="absolute inset-2 border-2 border-[#5ac1b0] rounded-2xl pointer-events-none z-10"></div>
                     <img 
-                        src="https://images.unsplash.com/photo-1563805042-7684c8e9e533?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                        src="products/1.png" 
                         alt="Ice Cream" 
                         loading="lazy"
                         class="w-4/5 h-4/5 object-cover rounded-full shadow-lg"
@@ -134,32 +137,24 @@
                 <p class="font-bold text-base md:text-lg tracking-widest text-[#1c3a63] leading-relaxed">
                     SANDWICHES<br/>TUBS<br/>POPSICLES
                 </p>
-            </div>
+            </a>
 
             <!-- Card 3: Sauces -->
-            <div class="flex flex-col items-center group cursor-pointer product-card" data-product="sauces">
+            <a href="shop.html#shop-sauces" class="flex flex-col items-center group cursor-pointer">
                 <h3 class="font-display text-2xl text-[#f5ebd9] mb-6 text-outline-blue tracking-wider">SAUCES</h3>
                 <div class="bg-[#1c3a63] p-4 rounded-3xl mb-6 w-full max-w-[280px] aspect-square flex items-center justify-center relative group-hover:scale-105 transition-transform overflow-hidden">
                     <div class="absolute inset-2 border-2 border-[#5ac1b0] rounded-2xl pointer-events-none z-10"></div>
-                    <div class="flex gap-4 z-0">
-                        <img 
-                            src="https://images.unsplash.com/photo-1607532941433-304659e8198a?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
-                            alt="Sauce Bottle 1" 
-                            loading="lazy"
-                            class="w-16 h-32 object-cover rounded-md transform -rotate-6 shadow-md"
-                        />
-                        <img 
-                            src="https://images.unsplash.com/photo-1607532941433-304659e8198a?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
-                            alt="Sauce Bottle 2" 
-                            loading="lazy"
-                            class="w-16 h-32 object-cover rounded-md transform rotate-6 shadow-md mt-4"
-                        />
-                    </div>
+                    <img 
+                        src="products/24.png" 
+                        alt="Sauces" 
+                        loading="lazy"
+                        class="w-4/5 h-4/5 object-cover rounded-full shadow-lg transform -rotate-12"
+                    />
                 </div>
                 <p class="font-bold text-base md:text-lg tracking-widest text-[#1c3a63] leading-relaxed">
                     HOT SAUCES<br/>CARAMEL<br/>CHOCOLATE
                 </p>
-            </div>
+            </a>
         </div>
 
         <div class="mt-16 flex justify-center z-20 relative">
@@ -506,6 +501,10 @@
     </button>
 
     <!-- Minimal JS to handle basic functionality if needed later -->
-    <script src="script.js"></script>
+    <!-- Componentized JS -->
+    <script src="js/cart.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/shop.js"></script>
+    <script src="js/checkout.js"></script>
 </body>
 </html>
