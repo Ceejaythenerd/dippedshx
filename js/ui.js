@@ -2,6 +2,34 @@
 let scrollObserver = null;
 
 document.addEventListener("DOMContentLoaded", () => {
+    // Debounce helper
+    function uiDebounce(func, delay) {
+        let timeout;
+        return function(...args) {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(this, args), delay);
+        };
+    }
+
+    // ===== DYNAMIC NAV BAR SCROLL EFFECT =====
+    const nav = document.querySelector('nav');
+    const navLogo = document.querySelector('nav img');
+    if (nav && navLogo) {
+        window.addEventListener('scroll', uiDebounce(() => {
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2', 'shadow-md', 'bg-[#f5ebd9]/95');
+                nav.classList.remove('py-4', 'bg-[#f5ebd9]/90');
+                navLogo.parentElement.classList.add('w-12', 'h-12', 'md:w-16', 'md:h-16');
+                navLogo.parentElement.classList.remove('w-16', 'h-16', 'md:w-20', 'md:h-20');
+            } else {
+                nav.classList.add('py-4', 'bg-[#f5ebd9]/90');
+                nav.classList.remove('py-2', 'shadow-md', 'bg-[#f5ebd9]/95');
+                navLogo.parentElement.classList.add('w-16', 'h-16', 'md:w-20', 'md:h-20');
+                navLogo.parentElement.classList.remove('w-12', 'h-12', 'md:w-16', 'md:h-16');
+            }
+        }, 10));
+    }
+
     // ===== AGE VERIFICATION =====
     const ageModal = document.getElementById('age-modal');
     const ageContent = document.getElementById('age-modal-content');

@@ -47,13 +47,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 `;
             }
 
-            if (Object.keys(window.dippedCart).length === 0) {
-                html = '<div class="text-center text-white/70 font-bold py-4">YOUR CART IS EMPTY.</div>';
-            }
-
             // Single DOM update
             if (checkoutItemsContainer) {
-                checkoutItemsContainer.innerHTML = html;
+                if (isEmpty) {
+                    checkoutItemsContainer.innerHTML = '<p class="text-white/70 font-bold tracking-widest text-center py-4">YOUR CART IS EMPTY</p>';
+                    subtotal = 0;
+                } else {
+                    checkoutItemsContainer.innerHTML = itemsHtml;
+                }
             }
 
             updateTotals();
@@ -218,6 +219,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 message += `%0A*Subtotal:* R${subtotal.toFixed(2)}%0A*Delivery Fee:* R${deliveryFee.toFixed(2)}%0A*TOTAL:* R${(subtotal + deliveryFee).toFixed(2)}%0A%0APlease confirm my order!`;
                 
                 window.open(`https://wa.me/27621201496?text=${message}`, '_blank');
+
+                // Clear the cart after sending
+                window.dippedCart = {};
+                window.saveAndRenderCart();
+                
+                // Show success modal or redirect
+                showError("YOUR ORDER HAS BEEN SENT TO WHATSAPP! 🛒 We will be with you shortly.");
+                const msgEl = document.getElementById('error-modal-msg');
+                const titleEl = document.querySelector('#error-modal-content h2');
+                if(titleEl) titleEl.textContent = "SUCCESS!";
+                if(msgEl) msgEl.classList.add('text-green-600');
+                
+                // Redirect to shop when closing the modal
+                const closeBtn = document.getElementById('close-error-modal');
+                if (closeBtn) {
+                    closeBtn.onclick = () => {
+                        window.location.href = 'shop.html';
+                    };
+                }
             });
         }
 

@@ -1,5 +1,10 @@
 // Cart state management with optimized rendering
-window.dippedCart = JSON.parse(localStorage.getItem('dippedCart')) || {};
+try {
+    window.dippedCart = JSON.parse(localStorage.getItem('dippedCart')) || {};
+} catch (e) {
+    console.warn('localStorage is restricted, cart will not persist across reloads.');
+    window.dippedCart = {};
+}
 
 // Debounce helper to prevent excessive updates
 function debounce(func, delay) {
@@ -90,7 +95,11 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     window.saveAndRenderCart = function() {
-        localStorage.setItem('dippedCart', JSON.stringify(window.dippedCart));
+        try {
+            localStorage.setItem('dippedCart', JSON.stringify(window.dippedCart));
+        } catch (e) {
+            console.warn('Failed to save cart to localStorage.');
+        }
         window.updateCartUI();
     };
 

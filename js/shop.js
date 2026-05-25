@@ -69,6 +69,31 @@ document.addEventListener("DOMContentLoaded", () => {
             if (grids.cookies) grids.cookies.innerHTML = htmlByCategory.cookies;
             if (grids.icecreams) grids.icecreams.innerHTML = htmlByCategory.icecreams;
             if (grids.sauces) grids.sauces.innerHTML = htmlByCategory.sauces;
+
+            // Scroll Reveal Animations for Product Cards
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        // Stagger the fade in
+                        setTimeout(() => {
+                            entry.target.classList.remove('opacity-0', 'translate-y-10');
+                            observer.unobserve(entry.target);
+                        }, index * 100);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.shop-card').forEach(card => {
+                // Add initial hidden state classes
+                card.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
+                observer.observe(card);
+            });
         }
     }
 
