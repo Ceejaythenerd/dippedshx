@@ -33,10 +33,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 subtotal += itemTotal;
 
                 html += `
-                    <div class="flex justify-between items-center border-b border-white/10 pb-3 mb-3 last:border-0 last:mb-0 last:pb-0">
+                    <div class="flex justify-between items-center border-b border-white/10 pb-3 mb-3 last:border-0 last:mb-0 last:pb-0" data-item="${item}">
                         <div>
                             <div class="font-bold text-sm tracking-widest">${item}</div>
-                            <div class="text-xs text-white/70">QTY: ${qty}</div>
+                            <div class="flex items-center gap-3 mt-1">
+                                <button class="cart-minus text-[#e891b6] font-bold text-lg hover:scale-110 transition-transform px-1" data-name="${item}">−</button>
+                                <span class="text-xs text-white/70 font-bold">QTY: ${qty}</span>
+                                <button class="cart-plus text-[#5ac1b0] font-bold text-lg hover:scale-110 transition-transform px-1" data-name="${item}">+</button>
+                            </div>
                         </div>
                         <div class="font-bold">${formatPrice(itemTotal)}</div>
                     </div>
@@ -144,6 +148,24 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert(msg);
             }
         };
+
+        // Real-time WhatsApp validation
+        const phoneInput = document.getElementById('checkout-phone');
+        const phoneCheck = document.getElementById('phone-check');
+        if (phoneInput && phoneCheck) {
+            phoneInput.addEventListener('input', (e) => {
+                let val = e.target.value.replace(/[\s-]/g, '');
+                if (/^\d{10}$/.test(val)) {
+                    phoneCheck.classList.remove('opacity-0');
+                    phoneInput.classList.remove('border-[#1c3a63]/20');
+                    phoneInput.classList.add('border-green-500');
+                } else {
+                    phoneCheck.classList.add('opacity-0');
+                    phoneInput.classList.add('border-[#1c3a63]/20');
+                    phoneInput.classList.remove('border-green-500');
+                }
+            });
+        }
 
         // Finalize order button
         if (finalizeBtn) {

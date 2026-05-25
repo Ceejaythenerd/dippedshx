@@ -23,6 +23,15 @@
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Accessibility Styles -->
+    <style>
+        button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
+            outline: 3px solid #e891b6;
+            outline-offset: 2px;
+            box-shadow: 0 0 0 4px rgba(232, 145, 182, 0.2);
+        }
+    </style>
 </head>
 <body class="min-h-screen bg-[#f5ebd9] text-[#1c3a63] font-mono overflow-x-hidden relative selection:bg-[#e891b6] selection:text-white">
 
@@ -424,7 +433,7 @@
     </div>
 
     <!-- 18+ Modal -->
-    <div id="age-modal" class="fixed inset-0 bg-[#1c3a63]/80 backdrop-blur-md z-[200] flex items-center justify-center transition-opacity duration-500 opacity-0 pointer-events-none">
+    <div id="age-modal" role="dialog" aria-modal="true" class="fixed inset-0 bg-[#1c3a63]/80 backdrop-blur-md z-[200] flex items-center justify-center transition-opacity duration-500 opacity-0 pointer-events-none">
         <div class="bg-[#f5ebd9] p-6 md:p-12 rounded-[2rem] md:rounded-[3rem] text-center max-w-lg mx-4 md:mx-6 border-4 md:border-8 border-[#e891b6] shadow-2xl transform scale-95 transition-transform duration-500" id="age-modal-content">
             <div class="flex justify-center mb-6">
                 <!-- Warning badge -->
@@ -473,7 +482,7 @@
     </div>
 
     <!-- Product Modal -->
-    <div id="product-modal" class="fixed inset-0 bg-[#1c3a63]/80 backdrop-blur-md z-[150] flex items-center justify-center transition-opacity duration-300 opacity-0 pointer-events-none p-4 md:p-6">
+    <div id="product-modal" role="dialog" aria-modal="true" class="fixed inset-0 bg-[#1c3a63]/80 backdrop-blur-md z-[150] flex items-center justify-center transition-opacity duration-300 opacity-0 pointer-events-none p-4 md:p-6">
         <div class="bg-[#f5ebd9] p-6 md:p-12 rounded-[2rem] w-full max-w-lg border-4 border-[#e891b6] shadow-2xl relative transform scale-95 transition-transform duration-300" id="product-modal-content">
             <button id="close-product-modal" class="absolute top-6 right-6 text-[#1c3a63] hover:text-[#e891b6] transition-colors">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
@@ -489,6 +498,27 @@
                 <a href="https://wa.me/27621201496" target="_blank" class="inline-block bg-[#e891b6] text-white px-8 py-3 rounded-2xl font-bold tracking-widest hover:scale-105 transition-transform">
                     ORDER ON WHATSAPP
                 </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Clear Cart Modal -->
+    <div id="clear-cart-modal" role="dialog" aria-modal="true" style="z-index: 9999;" class="fixed inset-0 bg-[#1c3a63]/80 backdrop-blur-md flex items-center justify-center transition-opacity duration-300 opacity-0 pointer-events-none p-4 md:p-6">
+        <div class="bg-[#f5ebd9] p-6 md:p-12 rounded-[2rem] w-full max-w-sm text-center border-4 border-[#e891b6] shadow-2xl relative transform scale-95 transition-transform duration-300" id="clear-cart-modal-content">
+            <div class="flex justify-center mb-6">
+                <span class="text-6xl">🗑️</span>
+            </div>
+            <h2 class="font-display text-3xl sm:text-4xl text-[#1c3a63] mb-4">CLEAR CART?</h2>
+            <p class="font-bold text-sm tracking-widest text-[#1c3a63] leading-relaxed mb-8">
+                ARE YOU SURE YOU WANT TO CLEAR YOUR CART?<br>ALL YOUR TREATS WILL BE LOST!
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button id="confirm-clear-cart" class="w-full sm:w-auto bg-[#e891b6] text-white px-6 py-3 rounded-2xl font-bold tracking-widest hover:scale-105 transition-transform">
+                    YES, CLEAR IT
+                </button>
+                <button id="cancel-clear-cart" class="w-full sm:w-auto bg-[#1c3a63] text-[#f5ebd9] px-6 py-3 rounded-2xl font-bold tracking-widest hover:scale-105 transition-transform">
+                    CANCEL
+                </button>
             </div>
         </div>
     </div>

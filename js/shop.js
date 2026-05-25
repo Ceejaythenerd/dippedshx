@@ -156,9 +156,10 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 // Product not found
                 container.innerHTML = `
-                    <div class="text-center max-w-2xl mx-auto py-20">
+                    <div class="text-center max-w-2xl mx-auto py-20 flex flex-col items-center">
+                        <img src="img/hero-bud.png" class="w-48 h-48 object-contain mb-8 opacity-70 grayscale" alt="Sad Bud">
                         <h1 class="font-display text-4xl sm:text-5xl text-[#1c3a63] mb-6">TREAT NOT FOUND</h1>
-                        <p class="font-bold text-xl tracking-widest text-[#1c3a63]/70 mb-8">It seems this treat has already been eaten. Let's get you back to the shop.</p>
+                        <p class="font-bold text-xl tracking-widest text-[#1c3a63]/70 mb-8">It seems this treat has already been eaten or just floated away. Let's get you back to the shop.</p>
                         <a href="shop.html" class="inline-block bg-[#e891b6] text-white px-8 py-4 rounded-xl font-bold tracking-widest hover:scale-105 transition-transform shadow-lg">BACK TO SHOP</a>
                     </div>
                 `;

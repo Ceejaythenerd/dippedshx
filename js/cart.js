@@ -11,6 +11,32 @@ function debounce(func, delay) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    // Inject Toast Container
+    let toastContainer = document.getElementById('toast-container');
+    if (!toastContainer) {
+        toastContainer = document.createElement('div');
+        toastContainer.id = 'toast-container';
+        toastContainer.className = 'fixed bottom-6 left-1/2 transform -translate-x-1/2 z-[99999] flex flex-col gap-2 pointer-events-none';
+        document.body.appendChild(toastContainer);
+    }
+
+    window.showToast = (message) => {
+        const toast = document.createElement('div');
+        toast.className = 'bg-[#1c3a63] text-white px-6 py-3 rounded-2xl font-bold tracking-widest shadow-2xl border-2 border-[#e891b6] transform translate-y-10 opacity-0 transition-all duration-300';
+        toast.textContent = message;
+        toastContainer.appendChild(toast);
+        
+        // Animate in
+        requestAnimationFrame(() => {
+            toast.classList.remove('translate-y-10', 'opacity-0');
+        });
+        
+        // Remove after 3 seconds
+        setTimeout(() => {
+            toast.classList.add('translate-y-10', 'opacity-0');
+            setTimeout(() => toast.remove(), 300);
+        }, 3000);
+    };
     const cartSidebar = document.getElementById('cart-sidebar');
     const openCartBtns = document.querySelectorAll('#open-cart, #shop-open-cart-btn');
     const closeCartBtn = document.getElementById('close-cart');
@@ -100,6 +126,10 @@ document.addEventListener("DOMContentLoaded", () => {
             addBtn.classList.add('bg-[#5ac1b0]', 'text-white');
             addBtn.classList.remove('bg-[#1c3a63]', 'hover:text-[#1c3a63]', 'hover:bg-[#e891b6]', 'hover:bg-[#5ac1b0]', 'hover:bg-[#facc15]');
             
+            if (window.showToast) {
+                window.showToast(`${name.toUpperCase()} ADDED TO CART 🛒`);
+            }
+
             setTimeout(() => {
                 addBtn.textContent = originalText;
                 addBtn.className = originalClass;
@@ -147,6 +177,24 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        // Handle clear cart button
+        const clearBtn = e.target.closest('#clear-cart-btn');
+        if (clearBtn) {
+            const modal = document.getElementById('clear-cart-modal');
+            const modalContent = document.getElementById('clear-cart-modal-content');
+            
+            if (modal) {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                setTimeout(() => modalContent?.classList.remove('scale-95'), 10);
+            } else {
+                if (confirm('ARE YOU SURE YOU WANT TO CLEAR YOUR CART?')) {
+                    window.dippedCart = {};
+                    window.saveAndRenderCart();
+                }
+            }
+            return;
+        }
+
         // Handle shop card click (navigate to product page)
         const card = e.target.closest('.shop-card');
         if (card) {
@@ -154,14 +202,26 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Clear cart functionality
-    const clearCartBtn = document.getElementById('clear-cart-btn');
-    if (clearCartBtn) {
-        clearCartBtn.addEventListener('click', () => {
-            if (confirm('ARE YOU SURE YOU WANT TO CLEAR YOUR CART?')) {
-                window.dippedCart = {};
-                window.saveAndRenderCart();
-            }
+    // Modal elements
+    const clearCartModal = document.getElementById('clear-cart-modal');
+    const clearCartModalContent = document.getElementById('clear-cart-modal-content');
+    const confirmClearCartBtn = document.getElementById('confirm-clear-cart');
+    const cancelClearCartBtn = document.getElementById('cancel-clear-cart');
+
+    const closeClearModal = () => {
+        if (clearCartModalContent) clearCartModalContent.classList.add('scale-95');
+        if (clearCartModal) clearCartModal.classList.add('opacity-0', 'pointer-events-none');
+    };
+
+    if (cancelClearCartBtn) {
+        cancelClearCartBtn.addEventListener('click', closeClearModal);
+    }
+
+    if (confirmClearCartBtn) {
+        confirmClearCartBtn.addEventListener('click', () => {
+            window.dippedCart = {};
+            window.saveAndRenderCart();
+            closeClearModal();
         });
     }
 

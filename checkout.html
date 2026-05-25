@@ -23,6 +23,15 @@
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Accessibility Styles -->
+    <style>
+        button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
+            outline: 3px solid #e891b6;
+            outline-offset: 2px;
+            box-shadow: 0 0 0 4px rgba(232, 145, 182, 0.2);
+        }
+    </style>
 </head>
 <body class="min-h-screen bg-[#f5ebd9] text-[#1c3a63] font-mono overflow-x-hidden relative selection:bg-[#e891b6] selection:text-white">
 
@@ -66,9 +75,12 @@
                     <input type="text" id="checkout-name" required class="w-full bg-[#f5ebd9]/50 border-2 border-[#1c3a63]/20 text-[#1c3a63] px-4 py-3 rounded-xl font-bold focus:outline-none focus:border-[#e891b6] transition-colors">
                 </div>
                 
-                <div>
+                <div class="relative">
                     <label class="block font-bold text-xs tracking-widest text-[#1c3a63] mb-2 uppercase">WhatsApp Number</label>
-                    <input type="tel" id="checkout-phone" required placeholder="0621201496" maxlength="13" class="w-full bg-[#f5ebd9]/50 border-2 border-[#1c3a63]/20 text-[#1c3a63] px-4 py-3 rounded-xl font-bold focus:outline-none focus:border-[#e891b6] transition-colors">
+                    <input type="tel" id="checkout-phone" required placeholder="0621201496" maxlength="13" class="w-full bg-[#f5ebd9]/50 border-2 border-[#1c3a63]/20 text-[#1c3a63] px-4 py-3 rounded-xl font-bold focus:outline-none focus:border-[#e891b6] transition-colors pr-12">
+                    <span id="phone-check" class="absolute right-4 top-10 text-green-500 opacity-0 transition-opacity duration-300 pointer-events-none">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </span>
                 </div>
 
                 <div>

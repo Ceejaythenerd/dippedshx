@@ -23,6 +23,15 @@
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Accessibility Styles -->
+    <style>
+        button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
+            outline: 3px solid #e891b6;
+            outline-offset: 2px;
+            box-shadow: 0 0 0 4px rgba(232, 145, 182, 0.2);
+        }
+    </style>
 </head>
 <body class="min-h-screen bg-[#f5ebd9] text-[#1c3a63] font-mono overflow-x-hidden relative selection:bg-[#e891b6] selection:text-white">
 
@@ -58,7 +67,7 @@
     </nav>
 
     <!-- --- SHOP HEADER --- -->
-    <header class="pt-32 pb-16 px-6 md:px-12 bg-[#f5ebd9] relative z-10 flex flex-col items-center">
+    <header class="pt-32 pb-0 px-6 md:px-12 bg-[#f5ebd9] relative z-10 flex flex-col items-center">
         <div class="relative inline-block mb-4">
             <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center text-[#1c3a63] text-depth-cream drop-shadow-md">
                 SHOP ALL
@@ -78,8 +87,8 @@
         <img src="img/bitten-cookie.png" class="absolute bottom-20 -left-10 md:-left-20 w-56 md:w-80 object-contain opacity-[0.85] transform -rotate-6 pointer-events-none z-[-1]" loading="lazy" alt="">
 
         <!-- SEARCH BAR -->
-        <div class="max-w-xl mx-auto pt-10 relative">
-            <img src="img/bud-dealer.png" class="absolute -right-24 md:-right-64 top-[60%] -translate-y-1/2 w-64 md:w-80 lg:w-[30rem] object-contain transform rotate-12 opacity-20 md:opacity-50 lg:opacity-[0.85] pointer-events-none z-[-1]" loading="lazy" alt="">
+        <div class="max-w-xl mx-auto pt-0 relative !mt-0">
+            <img src="img/bud-dealer.png" class="absolute -right-24 md:-right-64 top-[60%] -translate-y-1/2 w-64 md:w-80 lg:w-[30rem] object-contain transform rotate-12 opacity-80 pointer-events-none z-[-1]" loading="lazy" alt="">
             <div class="relative z-10">
                 <input type="text" id="product-search" placeholder="Search for treats, flavors..." class="w-full bg-white border-4 border-[#1c3a63] text-[#1c3a63] px-6 py-4 rounded-full font-bold tracking-widest focus:outline-none focus:border-[#e891b6] transition-colors shadow-lg placeholder:text-[#1c3a63]/40">
                 <svg class="absolute right-6 top-1/2 -translate-y-1/2 text-[#1c3a63]/40" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
@@ -248,6 +257,27 @@
                 <a href="https://wa.me/27621201496" target="_blank" class="inline-block bg-[#e891b6] text-white px-8 py-3 rounded-2xl font-bold tracking-widest hover:scale-105 transition-transform">
                     ORDER ON WHATSAPP
                 </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Clear Cart Modal -->
+    <div id="clear-cart-modal" role="dialog" aria-modal="true" style="z-index: 9999;" class="fixed inset-0 bg-[#1c3a63]/80 backdrop-blur-md flex items-center justify-center transition-opacity duration-300 opacity-0 pointer-events-none p-4 md:p-6">
+        <div class="bg-[#f5ebd9] p-6 md:p-12 rounded-[2rem] w-full max-w-sm text-center border-4 border-[#e891b6] shadow-2xl relative transform scale-95 transition-transform duration-300" id="clear-cart-modal-content">
+            <div class="flex justify-center mb-6">
+                <span class="text-6xl">🗑️</span>
+            </div>
+            <h2 class="font-display text-3xl sm:text-4xl text-[#1c3a63] mb-4">CLEAR CART?</h2>
+            <p class="font-bold text-sm tracking-widest text-[#1c3a63] leading-relaxed mb-8">
+                ARE YOU SURE YOU WANT TO CLEAR YOUR CART?<br>ALL YOUR TREATS WILL BE LOST!
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button id="confirm-clear-cart" class="w-full sm:w-auto bg-[#e891b6] text-white px-6 py-3 rounded-2xl font-bold tracking-widest hover:scale-105 transition-transform">
+                    YES, CLEAR IT
+                </button>
+                <button id="cancel-clear-cart" class="w-full sm:w-auto bg-[#1c3a63] text-[#f5ebd9] px-6 py-3 rounded-2xl font-bold tracking-widest hover:scale-105 transition-transform">
+                    CANCEL
+                </button>
             </div>
         </div>
     </div>
