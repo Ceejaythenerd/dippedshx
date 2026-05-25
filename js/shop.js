@@ -31,12 +31,13 @@ document.addEventListener("DOMContentLoaded", () => {
     initializeProductCache();
 
     // Shop page product grid rendering
-    if (window.location.pathname.includes('shop.html')) {
-        const grids = {
-            cookies: document.getElementById('grid-cookies'),
-            icecreams: document.getElementById('grid-icecreams'),
-            sauces: document.getElementById('grid-sauces')
-        };
+    const grids = {
+        cookies: document.getElementById('grid-cookies'),
+        icecreams: document.getElementById('grid-icecreams'),
+        sauces: document.getElementById('grid-sauces')
+    };
+
+    if (grids.cookies || grids.icecreams || grids.sauces) {
 
         if (typeof productData !== 'undefined') {
             // Build HTML for each category in memory first, then insert once
@@ -110,12 +111,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Product detail page
-    if (window.location.pathname.includes('product.html')) {
+    const container = document.getElementById('product-detail-container');
+    if (container) {
         const urlParams = new URLSearchParams(window.location.search);
         const productId = urlParams.get('id');
-        const container = document.getElementById('product-detail-container');
 
-        if (container && typeof productData !== 'undefined') {
+        if (typeof productData !== 'undefined') {
             const product = productData.find(p => p.id === productId);
 
             if (product) {

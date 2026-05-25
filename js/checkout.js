@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-    if (window.location.pathname.includes('checkout.html')) {
-        const checkoutItemsContainer = document.getElementById('checkout-items');
+    const checkoutItemsContainer = document.getElementById('checkout-items');
+    if (checkoutItemsContainer) {
         const checkoutSubtotalEl = document.getElementById('checkout-subtotal');
         const checkoutDeliveryFeeEl = document.getElementById('checkout-delivery-fee');
         const checkoutTotalEl = document.getElementById('checkout-total');
