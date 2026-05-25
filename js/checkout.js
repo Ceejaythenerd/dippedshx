@@ -156,13 +156,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
                 const name = document.getElementById('checkout-name').value.trim();
-                const phone = document.getElementById('checkout-phone').value.trim();
+                let phone = document.getElementById('checkout-phone').value.trim();
                 const deliveryMethod = document.querySelector('input[name="delivery-method"]:checked')?.value;
                 const address = document.getElementById('checkout-address').value.trim();
 
                 // Validation
-                if (!name || !phone) {
-                    showError("PLEASE PROVIDE YOUR NAME AND WHATSAPP NUMBER.");
+                if (!name) {
+                    showError("PLEASE PROVIDE YOUR NAME.");
+                    return;
+                }
+
+                phone = phone.replace(/[\s-]/g, '');
+                if (!/^\d{10}$/.test(phone)) {
+                    showError("PLEASE PROVIDE A VALID 10-DIGIT WHATSAPP NUMBER.");
                     return;
                 }
                 
