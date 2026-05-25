@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth overflow-x-hidden">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dipped Shx</title>
-    <meta name="description" content="Dipped Shx - Premium Handcrafted Infused Treats. Satisfy your sweet and savory cravings." />
+    <meta name="description"
+        content="Dipped Shx - Premium Handcrafted Infused Treats. Satisfy your sweet and savory cravings." />
     <meta property="og:title" content="Dipped Shx Shop" />
     <meta property="og:description" content="Premium Handcrafted Infused Treats." />
     <meta property="og:type" content="website" />
@@ -14,62 +16,75 @@
     <meta name="twitter:title" content="Dipped Shx Shop" />
     <meta name="twitter:description" content="Premium Handcrafted Infused Treats." />
     <meta name="twitter:image" content="https://dippedshx.com/img/logo.png" />
-    
+
     <!-- Tailwind Compiled CSS -->
     <link rel="stylesheet" href="dist/output.css">
-    
+
     <!-- Centralized Product Data -->
     <script src="products/product-data.js"></script>
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    
+
     <!-- Accessibility Styles -->
     <style>
-        button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
+        button:focus-visible,
+        a:focus-visible,
+        input:focus-visible,
+        select:focus-visible {
             outline: 3px solid #e891b6;
             outline-offset: 2px;
             box-shadow: 0 0 0 4px rgba(232, 145, 182, 0.2);
         }
     </style>
 </head>
-<body class="min-h-screen bg-[#f5ebd9] text-[#1c3a63] font-mono overflow-x-hidden relative selection:bg-[#e891b6] selection:text-white">
+
+<body
+    class="min-h-screen bg-[#f5ebd9] text-[#1c3a63] font-mono overflow-x-hidden relative selection:bg-[#e891b6] selection:text-white">
 
     <!-- --- Navigation --- -->
-    <nav class="fixed top-0 w-full z-50 flex items-center justify-between px-6 py-4 md:px-12 bg-[#f5ebd9]/90 backdrop-blur-sm">
+    <nav
+        class="fixed top-0 w-full z-50 flex items-center justify-between px-6 py-4 md:px-12 bg-[#f5ebd9]/90 backdrop-blur-sm">
         <div class="flex items-center gap-2">
             <!-- Brand Logo -->
             <div class="relative w-16 h-16 md:w-20 md:h-20 flex-shrink-0">
-                <img src="img/logo.png" alt="Dipped Shx Logo" class="w-full h-full object-contain drop-shadow-md hover:scale-105 transition-transform cursor-pointer" onclick="window.location.href='index.html'">
+                <img src="img/logo.png" alt="Dipped Shx Logo"
+                    class="w-full h-full object-contain drop-shadow-md hover:scale-105 transition-transform cursor-pointer"
+                    onclick="window.location.href='index.html'">
             </div>
         </div>
-        
+
         <div class="hidden md:flex gap-8 font-display text-xl tracking-wider text-[#1c3a63]">
             <a href="index.html#home" class="hover:text-[#e891b6] transition-colors">HOME</a>
             <a href="shop.html" class="hover:text-[#e891b6] transition-colors">SHOP</a>
             <a href="index.html#about" class="hover:text-[#e891b6] transition-colors">ABOUT US</a>
             <a href="index.html#contact" class="hover:text-[#e891b6] transition-colors">CONTACT</a>
         </div>
-        
+
         <div class="flex items-center gap-6">
             <!-- Cart Button -->
-            <button id="open-cart" aria-label="Open Shopping Cart" class="relative text-[#1c3a63] hover:text-[#e891b6] transition-colors focus:outline-none">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <button id="open-cart" aria-label="Open Shopping Cart"
+                class="relative text-[#1c3a63] hover:text-[#e891b6] transition-colors focus:outline-none">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
                     <line x1="3" y1="6" x2="21" y2="6"></line>
                     <path d="M16 10a4 4 0 0 1-8 0"></path>
                 </svg>
-                <span id="cart-count" class="absolute -top-2 -right-2 bg-[#e891b6] text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm">0</span>
+                <span id="cart-count"
+                    class="absolute -top-2 -right-2 bg-[#e891b6] text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm">0</span>
             </button>
             <!-- Mobile menu toggle -->
-            <button id="open-menu" aria-label="Open Navigation Menu" class="md:hidden font-display text-xl cursor-pointer hover:text-[#e891b6] transition-colors focus:outline-none">MENU</button>
+            <button id="open-menu" aria-label="Open Navigation Menu"
+                class="md:hidden font-display text-xl cursor-pointer hover:text-[#e891b6] transition-colors focus:outline-none">MENU</button>
         </div>
     </nav>
 
     <!-- --- SHOP HEADER --- -->
     <header class="pt-32 pb-0 px-6 md:px-12 bg-[#f5ebd9] relative z-10 flex flex-col items-center">
         <div class="relative inline-block mb-4">
-            <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center text-[#1c3a63] text-depth-cream drop-shadow-md">
+            <h1
+                class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center text-[#1c3a63] text-depth-cream drop-shadow-md">
                 SHOP ALL
             </h1>
         </div>
@@ -79,25 +94,42 @@
     </header>
     <!-- --- SHOP CATEGORIES --- -->
     <main class="bg-[#f5ebd9] pb-32 px-6 md:px-12 space-y-24 z-10 relative">
-        
+
         <!-- Decorative Background Images -->
-        <img src="img/yellow-flower.png" class="absolute top-[15%] -left-10 md:-left-16 w-32 md:w-48 object-contain opacity-[0.85] transform -rotate-12 pointer-events-none z-[-1]" loading="lazy" alt="">
-        <img src="img/bud-smart.png" class="absolute top-[35%] -right-16 md:-right-32 w-72 md:w-[30rem] object-contain opacity-[0.85] transform rotate-12 pointer-events-none z-[-1]" loading="lazy" alt="">
-        <img src="img/purple-flower.png" class="absolute top-[65%] -right-10 md:-right-20 w-40 md:w-64 object-contain opacity-[0.85] transform rotate-[25deg] pointer-events-none z-[-1]" loading="lazy" alt="">
-        <img src="img/bitten-cookie.png" class="absolute bottom-20 -left-10 md:-left-20 w-56 md:w-80 object-contain opacity-[0.85] transform -rotate-6 pointer-events-none z-[-1]" loading="lazy" alt="">
+        <img src="img/yellow-flower.png"
+            class="absolute top-[15%] -left-10 md:-left-16 w-32 md:w-48 object-contain opacity-[0.85] transform -rotate-12 pointer-events-none z-[-1]"
+            loading="lazy" alt="">
+        <img src="img/bud-smart.png"
+            class="absolute top-[35%] -right-16 md:-right-32 w-72 md:w-[30rem] object-contain opacity-[0.85] transform rotate-12 pointer-events-none z-[-1]"
+            loading="lazy" alt="">
+        <img src="img/purple-flower.png"
+            class="absolute top-[65%] -right-10 md:-right-20 w-40 md:w-64 object-contain opacity-[0.85] transform rotate-[25deg] pointer-events-none z-[-1]"
+            loading="lazy" alt="">
+        <img src="img/bitten-cookie.png"
+            class="absolute bottom-20 -left-10 md:-left-20 w-56 md:w-80 object-contain opacity-[0.85] transform -rotate-6 pointer-events-none z-[-1]"
+            loading="lazy" alt="">
 
         <!-- SEARCH BAR -->
         <div class="max-w-xl mx-auto pt-0 relative !mt-0">
-            <img src="img/bud-dealer.png" class="absolute -right-24 md:-right-64 top-[60%] -translate-y-1/2 w-64 md:w-80 lg:w-[30rem] object-contain transform rotate-12 opacity-80 pointer-events-none z-[-1]" loading="lazy" alt="">
+            <img src="img/bud-dealer.png"
+                class="absolute -right-24 md:-right-64 top-[60%] -translate-y-1/2 w-64 md:w-80 lg:w-[30rem] object-contain transform rotate-12 opacity-80 pointer-events-none z-[-1]"
+                loading="lazy" alt="">
             <div class="relative z-10">
-                <input type="text" id="product-search" placeholder="Search for treats, flavors..." class="w-full bg-white border-4 border-[#1c3a63] text-[#1c3a63] px-6 py-4 rounded-full font-bold tracking-widest focus:outline-none focus:border-[#e891b6] transition-colors shadow-lg placeholder:text-[#1c3a63]/40">
-                <svg class="absolute right-6 top-1/2 -translate-y-1/2 text-[#1c3a63]/40" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="product-search" placeholder="Search for treats, flavors..."
+                    class="w-full bg-white border-4 border-[#1c3a63] text-[#1c3a63] px-6 py-4 rounded-full font-bold tracking-widest focus:outline-none focus:border-[#e891b6] transition-colors shadow-lg placeholder:text-[#1c3a63]/40">
+                <svg class="absolute right-6 top-1/2 -translate-y-1/2 text-[#1c3a63]/40" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
             </div>
         </div>
-        
+
         <!-- COOKIES & BROWNIES -->
         <section id="shop-cookies" class="max-w-6xl mx-auto relative pt-10">
-            <h2 class="font-display text-4xl text-[#1c3a63] mb-8 border-b-4 border-[#1c3a63]/10 pb-4">COOKIES & BROWNIES</h2>
+            <h2 class="font-display text-4xl text-[#1c3a63] mb-8 border-b-4 border-[#1c3a63]/10 pb-4">COOKIES & BROWNIES
+            </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="grid-cookies">
             </div>
         </section>
@@ -115,17 +147,21 @@
         </section>
 
         <div class="flex justify-center mt-16 pb-16">
-            <button id="shop-open-cart-btn" class="inline-block bg-[#1c3a63] text-white px-12 py-4 rounded-full font-display text-2xl hover:scale-105 transition-transform drop-shadow-xl border-4 border-[#1c3a63]">
+            <button id="shop-open-cart-btn"
+                class="inline-block bg-[#1c3a63] text-white px-12 py-4 rounded-full font-display text-2xl hover:scale-105 transition-transform drop-shadow-xl border-4 border-[#1c3a63]">
                 VIEW CART
             </button>
         </div>
     </main>
 
     <!-- --- FOOTER --- -->
-    <footer class="bg-[#f5ebd9] py-8 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between relative z-10 border-t-4 border-[#e891b6]/20">
+    <footer
+        class="bg-[#f5ebd9] py-8 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between relative z-10 border-t-4 border-[#e891b6]/20">
         <!-- Decoration -->
-        <img src="img/yellow-flower.png" class="absolute left-10 bottom-4 w-24 h-24 object-contain transform -rotate-12 opacity-50 drop-shadow-md" loading="lazy" alt="">
-        
+        <img src="img/yellow-flower.png"
+            class="absolute left-10 bottom-4 w-24 h-24 object-contain transform -rotate-12 opacity-50 drop-shadow-md"
+            loading="lazy" alt="">
+
         <!-- 18+ Badge -->
         <div class="flex-shrink-0 mb-6 md:mb-0 relative z-10 w-20 h-20">
             <img src="img/18+.png" alt="18+ Only" loading="lazy" class="w-full h-full object-contain drop-shadow-md">
@@ -151,11 +187,14 @@
     </footer>
 
     <!-- Cart Sidebar -->
-    <div id="cart-sidebar" class="fixed inset-y-0 right-0 w-full sm:w-[400px] bg-[#f5ebd9] shadow-2xl z-[250] transform translate-x-full transition-transform duration-300 flex flex-col border-l-4 border-[#1c3a63]">
+    <div id="cart-sidebar"
+        class="fixed inset-y-0 right-0 w-full sm:w-[400px] bg-[#f5ebd9] shadow-2xl z-[250] transform translate-x-full transition-transform duration-300 flex flex-col border-l-4 border-[#1c3a63]">
         <div class="p-4 sm:p-6 border-b-2 border-[#1c3a63]/10 flex justify-between items-center">
             <h2 class="font-display text-3xl text-[#1c3a63]">YOUR CART</h2>
-            <button id="close-cart" aria-label="Close Cart" class="text-[#1c3a63] hover:text-[#e891b6] transition-colors">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <button id="close-cart" aria-label="Close Cart"
+                class="text-[#1c3a63] hover:text-[#e891b6] transition-colors">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <line x1="18" y1="6" x2="6" y2="18"></line>
                     <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>
@@ -163,22 +202,28 @@
         </div>
         <div id="cart-items" class="flex-grow p-4 sm:p-6 overflow-y-auto space-y-4">
             <!-- Items injected by JS -->
-            <p class="text-center font-bold tracking-widest text-[#1c3a63]/70 mt-10 leading-relaxed" id="empty-cart-msg">WOW, SUCH EMPTY! 👻<br><br>DID YOU GET HIGH AND FORGET TO ADD TREATS? 🤪<br>DON'T LET THE MUNCHIES CATCH YOU UNPREPARED!</p>
+            <p class="text-center font-bold tracking-widest text-[#1c3a63]/70 mt-10 leading-relaxed"
+                id="empty-cart-msg">WOW, SUCH EMPTY! 👻<br><br>DID YOU GET HIGH AND FORGET TO ADD TREATS? 🤪<br>DON'T
+                LET THE MUNCHIES CATCH YOU UNPREPARED!</p>
         </div>
         <div class="p-4 sm:p-6 border-t-2 border-[#1c3a63]/10 bg-white">
-            <button id="checkout-btn" class="w-full bg-[#1c3a63] text-white py-4 rounded-xl font-bold tracking-widest hover:bg-[#e891b6] transition-colors flex justify-center items-center gap-2 mb-3">
+            <button id="checkout-btn"
+                class="w-full bg-[#1c3a63] text-white py-4 rounded-xl font-bold tracking-widest hover:bg-[#e891b6] transition-colors flex justify-center items-center gap-2 mb-3">
                 PROCEED TO CHECKOUT
             </button>
-            <button id="clear-cart-btn" class="w-full text-[#1c3a63]/50 text-xs font-bold tracking-widest hover:text-red-500 transition-colors uppercase py-2">
+            <button id="clear-cart-btn"
+                class="w-full text-[#1c3a63]/50 text-xs font-bold tracking-widest hover:text-red-500 transition-colors uppercase py-2">
                 CLEAR CART
             </button>
         </div>
     </div>
 
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-[#f5ebd9]/95 backdrop-blur-md z-[100] transform translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center">
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-[#f5ebd9]/95 backdrop-blur-md z-[100] transform translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center">
         <button id="close-menu" aria-label="Close Menu" class="absolute top-6 right-6 text-[#1c3a63]">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
                 <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
@@ -192,23 +237,24 @@
     </div>
 
     <!-- 18+ Modal -->
-    <div id="age-modal" class="fixed inset-0 bg-[#1c3a63]/80 backdrop-blur-md z-[200] flex items-center justify-center transition-opacity duration-500 opacity-0 pointer-events-none">
-        <div class="bg-[#f5ebd9] p-6 md:p-12 rounded-[2rem] md:rounded-[3rem] text-center max-w-lg mx-4 md:mx-6 border-4 md:border-8 border-[#e891b6] shadow-2xl transform scale-95 transition-transform duration-500" id="age-modal-content">
-            <div class="flex justify-center mb-6">
-                <!-- Warning badge -->
-                <img src="img/18+.png" alt="18+ Warning" class="w-24 h-24 object-contain drop-shadow-md">
-            </div>
-            <h2 class="font-display text-3xl sm:text-4xl md:text-5xl text-[#1c3a63] mb-6">ARE YOU 18 OR OLDER?</h2>
+    <div id="age-modal"
+        class="fixed inset-0 bg-[#1c3a63]/80 backdrop-blur-md z-[200] flex items-center justify-center transition-opacity duration-500 opacity-0 pointer-events-none">
+        <div class="bg-[#f5ebd9] p-6 md:p-12 rounded-[2rem] md:rounded-[3rem] text-center max-w-lg mx-4 md:mx-6 border-4 md:border-8 border-[#e891b6] shadow-2xl transform scale-95 transition-transform duration-500"
+            id="age-modal-content">
+
+            <h2 class="font-display text-3xl sm:text-4xl md:text-5xl text-[#1c3a63] mb-6">READY TO GET DIPPED?</h2>
             <p class="font-bold text-sm tracking-widest text-[#1c3a63] leading-relaxed mb-8">
                 THIS SITE CONTAINS CONTENT AND PRODUCTS STRICTLY FOR ADULTS. YOU MUST BE 18+ TO ENTER.
             </p>
 
             <!-- Step 1: Yes / No buttons -->
             <div id="age-step-1" class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button id="age-yes" class="bg-[#1c3a63] text-[#f5ebd9] px-8 py-3 rounded-2xl font-bold tracking-widest hover:scale-105 transition-transform">
+                <button id="age-yes"
+                    class="bg-[#1c3a63] text-[#f5ebd9] px-8 py-3 rounded-2xl font-bold tracking-widest hover:scale-105 transition-transform">
                     YES, I AM 18+
                 </button>
-                <button id="age-no" class="bg-[#e891b6] text-white px-8 py-3 rounded-2xl font-bold tracking-widest hover:scale-105 transition-transform">
+                <button id="age-no"
+                    class="bg-[#e891b6] text-white px-8 py-3 rounded-2xl font-bold tracking-widest hover:scale-105 transition-transform">
                     NO, I AM NOT
                 </button>
             </div>
@@ -216,10 +262,13 @@
             <!-- Step 2: DOB form -->
             <div id="age-step-2" class="hidden flex-col items-center gap-4 justify-center w-full max-w-sm mx-auto">
                 <div class="w-full text-left">
-                    <label for="dob-input" class="block font-bold text-[#1c3a63] text-sm tracking-widest mb-2">PLEASE VERIFY YOUR DATE OF BIRTH:</label>
-                    <input type="date" id="dob-input" class="w-full bg-white border-4 border-[#1c3a63] text-[#1c3a63] px-4 py-3 rounded-2xl font-bold tracking-widest focus:outline-none focus:border-[#e891b6] transition-colors">
+                    <label for="dob-input" class="block font-bold text-[#1c3a63] text-sm tracking-widest mb-2">PLEASE
+                        VERIFY YOUR DATE OF BIRTH:</label>
+                    <input type="date" id="dob-input"
+                        class="w-full bg-white border-4 border-[#1c3a63] text-[#1c3a63] px-4 py-3 rounded-2xl font-bold tracking-widest focus:outline-none focus:border-[#e891b6] transition-colors">
                 </div>
-                <button id="verify-age-btn" class="w-full bg-[#1c3a63] text-[#f5ebd9] px-8 py-3 rounded-2xl font-bold tracking-widest hover:scale-105 transition-transform mt-2">
+                <button id="verify-age-btn"
+                    class="w-full bg-[#1c3a63] text-[#f5ebd9] px-8 py-3 rounded-2xl font-bold tracking-widest hover:scale-105 transition-transform mt-2">
                     VERIFY
                 </button>
             </div>
@@ -231,20 +280,26 @@
     </div>
 
     <!-- Cookie Banner -->
-    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-[#1c3a63] text-[#f5ebd9] p-4 flex flex-col md:flex-row items-center justify-between z-[90] transition-transform duration-500 translate-y-full border-t-4 border-[#e891b6]">
+    <div id="cookie-banner"
+        class="fixed bottom-0 left-0 right-0 bg-[#1c3a63] text-[#f5ebd9] p-4 flex flex-col md:flex-row items-center justify-between z-[90] transition-transform duration-500 translate-y-full border-t-4 border-[#e891b6]">
         <div class="text-xs md:text-sm font-bold tracking-widest mb-4 md:mb-0 max-w-3xl">
             WE USE COOKIES TO ENHANCE YOUR EXPERIENCE. BY CONTINUING TO VISIT THIS SITE YOU AGREE TO OUR USE OF COOKIES.
         </div>
-        <button id="accept-cookies" class="bg-[#e891b6] text-[#1c3a63] px-6 py-2 rounded-xl font-bold hover:bg-white transition-colors tracking-widest text-sm whitespace-nowrap">
+        <button id="accept-cookies"
+            class="bg-[#e891b6] text-[#1c3a63] px-6 py-2 rounded-xl font-bold hover:bg-white transition-colors tracking-widest text-sm whitespace-nowrap">
             GOT IT
         </button>
     </div>
 
     <!-- Product Modal -->
-    <div id="product-modal" class="fixed inset-0 bg-[#1c3a63]/80 backdrop-blur-md z-[150] flex items-center justify-center transition-opacity duration-300 opacity-0 pointer-events-none p-4 md:p-6">
-        <div class="bg-[#f5ebd9] p-6 md:p-12 rounded-[2rem] w-full max-w-lg border-4 border-[#e891b6] shadow-2xl relative transform scale-95 transition-transform duration-300" id="product-modal-content">
-            <button id="close-product-modal" class="absolute top-6 right-6 text-[#1c3a63] hover:text-[#e891b6] transition-colors">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <div id="product-modal"
+        class="fixed inset-0 bg-[#1c3a63]/80 backdrop-blur-md z-[150] flex items-center justify-center transition-opacity duration-300 opacity-0 pointer-events-none p-4 md:p-6">
+        <div class="bg-[#f5ebd9] p-6 md:p-12 rounded-[2rem] w-full max-w-lg border-4 border-[#e891b6] shadow-2xl relative transform scale-95 transition-transform duration-300"
+            id="product-modal-content">
+            <button id="close-product-modal"
+                class="absolute top-6 right-6 text-[#1c3a63] hover:text-[#e891b6] transition-colors">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <line x1="18" y1="6" x2="6" y2="18"></line>
                     <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>
@@ -254,7 +309,8 @@
                 <!-- Content injected via JS -->
             </div>
             <div class="mt-8 pt-6 border-t-2 border-[#1c3a63]/10 text-center">
-                <a href="https://wa.me/27621201496" target="_blank" class="inline-block bg-[#e891b6] text-white px-8 py-3 rounded-2xl font-bold tracking-widest hover:scale-105 transition-transform">
+                <a href="https://wa.me/27621201496" target="_blank"
+                    class="inline-block bg-[#e891b6] text-white px-8 py-3 rounded-2xl font-bold tracking-widest hover:scale-105 transition-transform">
                     ORDER ON WHATSAPP
                 </a>
             </div>
@@ -262,8 +318,10 @@
     </div>
 
     <!-- Clear Cart Modal -->
-    <div id="clear-cart-modal" role="dialog" aria-modal="true" style="z-index: 9999;" class="fixed inset-0 bg-[#1c3a63]/80 backdrop-blur-md flex items-center justify-center transition-opacity duration-300 opacity-0 pointer-events-none p-4 md:p-6">
-        <div class="bg-[#f5ebd9] p-6 md:p-12 rounded-[2rem] w-full max-w-sm text-center border-4 border-[#e891b6] shadow-2xl relative transform scale-95 transition-transform duration-300" id="clear-cart-modal-content">
+    <div id="clear-cart-modal" role="dialog" aria-modal="true" style="z-index: 9999;"
+        class="fixed inset-0 bg-[#1c3a63]/80 backdrop-blur-md flex items-center justify-center transition-opacity duration-300 opacity-0 pointer-events-none p-4 md:p-6">
+        <div class="bg-[#f5ebd9] p-6 md:p-12 rounded-[2rem] w-full max-w-sm text-center border-4 border-[#e891b6] shadow-2xl relative transform scale-95 transition-transform duration-300"
+            id="clear-cart-modal-content">
             <div class="flex justify-center mb-6">
                 <span class="text-6xl">🗑️</span>
             </div>
@@ -272,10 +330,12 @@
                 ARE YOU SURE YOU WANT TO CLEAR YOUR CART?<br>ALL YOUR TREATS WILL BE LOST!
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button id="confirm-clear-cart" class="w-full sm:w-auto bg-[#e891b6] text-white px-6 py-3 rounded-2xl font-bold tracking-widest hover:scale-105 transition-transform">
+                <button id="confirm-clear-cart"
+                    class="w-full sm:w-auto bg-[#e891b6] text-white px-6 py-3 rounded-2xl font-bold tracking-widest hover:scale-105 transition-transform">
                     YES, CLEAR IT
                 </button>
-                <button id="cancel-clear-cart" class="w-full sm:w-auto bg-[#1c3a63] text-[#f5ebd9] px-6 py-3 rounded-2xl font-bold tracking-widest hover:scale-105 transition-transform">
+                <button id="cancel-clear-cart"
+                    class="w-full sm:w-auto bg-[#1c3a63] text-[#f5ebd9] px-6 py-3 rounded-2xl font-bold tracking-widest hover:scale-105 transition-transform">
                     CANCEL
                 </button>
             </div>
@@ -283,8 +343,10 @@
     </div>
 
     <!-- Scroll Up Button -->
-    <button id="scroll-up" class="fixed bottom-6 right-6 bg-[#e891b6] text-white p-4 rounded-full shadow-2xl z-[80] transform translate-y-20 opacity-0 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-[#1c3a63]/20">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <button id="scroll-up"
+        class="fixed bottom-6 right-6 bg-[#e891b6] text-white p-4 rounded-full shadow-2xl z-[80] transform translate-y-20 opacity-0 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-[#1c3a63]/20">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+            stroke-linecap="round" stroke-linejoin="round">
             <polyline points="18 15 12 9 6 15"></polyline>
         </svg>
     </button>
@@ -296,4 +358,5 @@
     <script src="js/shop.js"></script>
     <script src="js/checkout.js"></script>
 </body>
+
 </html>
